@@ -2,9 +2,9 @@ var http = require('http'),
     querystring = require('querystring'),
     util = require('util');
 
-var client = function() {
+var Client = function() {
 };
-with({proto: client.prototype}) {
+with({proto: Client.prototype}) {
     proto.base_path = 'https://www.callfire.com/api/1.1/rest';
     
     proto.get_uri = function(path) {
@@ -41,4 +41,4 @@ with({proto: client.prototype}) {
     }
 }
 
-module.exports = client;
+module.exports = Client;

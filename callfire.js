@@ -1,22 +1,9 @@
 var libxmljs = require('libxmljs');
 
 var callfire = function() {
-}; with({proto: callfire}) { // Not a prototyped object
-    proto.broadcast = require('./client/broadcast');
-    proto.subscription = require('./client/subscription');
-    proto.text = require('./client/text');
-    proto.call = require('./client/call');
-    proto.contact = require('./client/contact');
-    proto.number = require('./client/number');
-    proto.label = require('./client/label');
-    
-    proto.resource_list = require('./resource/resource_list');
-    proto.resource = require('./resource/resource');
-    proto.resource_reference = require('./resource/resource_reference');
-    proto.resource_exception = require('./resource/resource_exception');
-    
+}; with({proto: callfire}) { // singleton
     proto.verify_credentials = function(username, password, callback) {
-        this.number.query_numbers(username, password, { MaxResults: 1 }, function(resource_list, exception) {
+        this.Number.query_numbers(username, password, { MaxResults: 1 }, function(resource_list, exception) {
             if(resource_list !== undefined) {
                 callback(true);
             } else {
@@ -35,29 +22,106 @@ var callfire = function() {
         return true;
     }
     
+    proto.client = function(type) {
+        return new this.client[type];
+    }
+    
     proto.response = function(response) {
         var document = libxmljs.parseXml(response);
-        var response_object;
         
-        if(document !== undefined) {
-            switch(Object.keys(document)[0]) {
-                case 'r:ResourceList':
-                    response_object = new callfire.resource_list(document);
+        if(document === undefined) {
+            return null;
+        }
+        
+        var root = document.root();
+        var response_object = null;
+        
+        if(root !== undefined) {
+            switch(root.name()) {
+                case 'ResourceList':
+                    response_object = new this.response.ResourceList(root);
                     break;
-                case 'r:Resource':
-                    response_object = new callfire.resource(document);
+                case 'Resource':
+                    response_object = new this.response.Resource(root);
                     break;
-                case 'r:ResourceReference':
-                    response_object = new callfire.resource_reference(document);
+                case 'ResourceReference':
+                    response_object = new this.response.ResourceReference(root);
                     break;
-                case 'r:ResourceException':
-                    response_object = new callfire.resource_exception(document);
+                case 'ResourceException':
+                    response_object = new this.response.ResourceException(root);
                     break;
             }
         }
         
         return response_object;
     }
+    
+    proto.resource = function(type) {
+        return new this.resource[type];
+    }
+    
+    proto.client.Client = require('./Client');
+    proto.client.Broadcast = require('./Client/Broadcast');
+    proto.client.Subscription = require('./Client/Subscription');
+    proto.client.Text = require('./Client/Text');
+    proto.client.Call = require('./Client/Call');
+    proto.client.Contact = require('./Client/Contact');
+    proto.client.Number = require('./Client/Number');
+    proto.client.Label = require('./Client/Label');
+    
+    proto.response.Response = require('./Response');
+    proto.response.ResourceList = require('./Response/ResourceList');
+    proto.response.Resource = require('./Response/Resource');
+    proto.response.ResourceReference = require('./Response/ResourceReference');
+    proto.response.ResourceException = require('./Response/ResourceException');
+    
+    proto.resource.Resource = require('./Resource');
+    proto.resource.Action = require('./Resource/Action');
+    proto.resource.ActionRecord = require('./Resource/ActionRecord');
+    proto.resource.ActionStatistics = require('./Resource/ActionStatistics');
+    proto.resource.AutoReply = require('./Resource/AutoReply');
+    proto.resource.Broadcast = require('./Resource/Broadcast');
+    proto.resource.BroadcastConfig = require('./Resource/BroadcastConfig');
+    proto.resource.BroadcastSchedule = require('./Resource/BroadcastSchedule');
+    proto.resource.BroadcastStats = require('./Resource/BroadcastStats');
+    proto.resource.Call = require('./Resource/Call');
+    proto.resource.CallRecord = require('./Resource/CallRecord');
+    proto.resource.CallTrackingConfig = require('./Resource/CallTrackingConfig');
+    proto.resource.Contact = require('./Resource/Contact');
+    proto.resource.ContactBatch = require('./Resource/ContactBatch');
+    proto.resource.ContactHistory = require('./Resource/ContactHistory');
+    proto.resource.ContactList = require('./Resource/ContactList');
+    proto.resource.DaysOfWeek = require('./Resource/DaysOfWeek');
+    proto.resource.Fulfilled = require('./Resource/Fulfilled');
+    proto.resource.InboundCallConfiguration = require('./Resource/InboundCallConfiguration');
+    proto.resource.InboundConfig = require('./Resource/InboundConfig');
+    proto.resource.IvrBroadcastConfig = require('./Resource/IvrBroadcastConfig');
+    proto.resource.IvrInboundConfig = require('./Resource/IvrInboundConfig');
+    proto.resource.Keyword = require('./Resource/Keyword');
+    proto.resource.Label = require('./Resource/Label');
+    proto.resource.LeaseInfo = require('./Resource/LeaseInfo');
+    proto.resource.LocalTimeZoneRestriction = require('./Resource/LocalTimeZoneRestriction');
+    proto.resource.Number = require('./Resource/Number');
+    proto.resource.NumberConfiguration = require('./Resource/NumberConfiguration');
+    proto.resource.NumberOrder = require('./Resource/NumberOrder');
+    proto.resource.NumberOrderItem = require('./Resource/NumberOrderItem');
+    proto.resource.QuestionResponse = require('./Resource/QuestionResponse');
+    proto.resource.RecordingMeta = require('./Resource/RecordingMeta');
+    proto.resource.Region = require('./Resource/Region');
+    proto.resource.ResultStat = require('./Resource/ResultStat');
+    proto.resource.RetryConfig = require('./Resource/RetryConfig');
+    proto.resource.RetryResults = require('./Resource/RetryResults');
+    proto.resource.SoundMeta = require('./Resource/SoundMeta');
+    proto.resource.Subscription = require('./Resource/Subscription');
+    proto.resource.SubscriptionFilter = require('./Resource/SubscriptionFilter');
+    proto.resource.Text = require('./Resource/Text');
+    proto.resource.TextBroadcastConfig = require('./Resource/TextBroadcastConfig');
+    proto.resource.TextRecord = require('./Resource/TextRecord');
+    proto.resource.TextToSpeech = require('./Resource/TextToSpeech');
+    proto.resource.ToNumber = require('./Resource/ToNumber');
+    proto.resource.TransferNumber = require('./Resource/TransferNumber');
+    proto.resource.UsageStats = require('./Resource/UsageStats');
+    proto.resource.VoiceBroadcastConfig = require('./Resource/VoiceBroadcastConfig');
 
     proto.AMCONFIG_AM_ONLY = 'AM_ONLY';
     proto.AMCONFIG_AM_AND_LIVE = 'AM_AND_LIVE';
