@@ -1,202 +1,209 @@
 {
-    "TextToSpeech": {
-
-    },
     "InboundConfig": {
         "id": "@id"
     },
     "RetryResults": {
 
     },
+    "RetryPhoneTypes": {
+
+    },
     "RetryConfig": {
-        "MaxAttempts": "MaxAttempts",
-        "MinutesBetweenAttempts": "MinutesBetweenAttempts",
-        "#RetryResults": "RetryResults"
+        "MaxAttempts": "_:MaxAttempts",
+        "MinutesBetweenAttempts": "_:MinutesBetweenAttempts",
+        "#RetryResults": "_:RetryResults",
+        "#RetryPhoneTypes": "_:RetryPhoneTypes"
     },
     "BroadcastConfig": {
         "id": "@id",
-        "Created": "Created",
-        "FromNumber": "FromNumber",
-        "#LocalTimeZoneRestriction": "LocalTimeZoneRestriction",
-        "#RetryConfig": "RetryConfig"
+        "Created": "_:Created",
+        "FromNumber": "_:FromNumber",
+        "#LocalTimeZoneRestriction": "_:LocalTimeZoneRestriction",
+        "#RetryConfig": "_:RetryConfig"
     },
     "ToNumber": {
 
     },
     "QuestionResponse": {
-        "Question": "Question",
-        "Response": "Response"
+        "Question": "_:Question",
+        "Response": "_:Response"
     },
     "ActionRecord": {
         "id": "@id",
-        "Result": "Result",
-        "FinishTime": "FinishTime",
-        "BilledAmount": "BilledAmount",
-        "#@QuestionResponses": "QuestionResponse"
+        "Result": "_:Result",
+        "FinishTime": "_:FinishTime",
+        "BilledAmount": "_:BilledAmount",
+        "#@QuestionResponses": "_:QuestionResponse"
     },
     "Action": {
         "id": "@id",
-        "FromNumber": "FromNumber",
-        "ToNumber": "ToNumber",
-        "State": "State",
-        "BatchId": "BatchId",
-        "BroadcastId": "BroadcastId",
-        "ContactId": "ContactId",
-        "Inbound": "Inbound",
-        "Created": "Created",
-        "Modified": "Modified",
-        "FinalResult": "FinalResult"
+        "FromNumber": "_:FromNumber",
+        "ToNumber": "_:ToNumber",
+        "State": "_:State",
+        "BatchId": "_:BatchId",
+        "BroadcastId": "_:BroadcastId",
+        "ContactId": "_:ContactId",
+        "Inbound": "_:Inbound",
+        "Created": "_:Created",
+        "Modified": "_:Modified",
+        "FinalResult": "_:FinalResult",
+        "#@Labels": "_:Label"
     },
     "Fulfilled": {
 
     },
     "NumberOrderItem": {
-        "Ordered": "Ordered",
-        "UnitCost": "UnitCost",
-        "#Fulfilled": "Fulfilled"
+        "Ordered": "_:Ordered",
+        "UnitCost": "_:UnitCost",
+        "#Fulfilled": "_:Fulfilled"
     },
     "Broadcast": {
         "id": "@id",
-        "Name": "Name",
-        "Status": "Status",
-        "LastModified": "LastModified",
-        "Type": "Type",
+        "Name": "_:Name",
+        "Status": "_:Status",
+        "LastModified": "_:LastModified",
+        "Type": "_:Type",
         "#VoiceBroadcastConfig": "VoiceBroadcastConfig",
         "#TextBroadcastConfig": "TextBroadcastConfig",
         "#IvrBroadcastConfig": "IvrBroadcastConfig"
     },
     "VoiceBroadcastConfig": {
-        "AnsweringMachineConfig": "AnsweringMachineConfig",
-        "TransferDigit": "TransferDigit",
-        "TransferNumber": "TransferNumber",
-        "DncDigit": "DncDigit",
-        "MaxActiveTransfers": "MaxActiveTransfers",
-        "LiveSoundText": "LiveSoundText",
-        "LiveSoundId": "LiveSoundId",
-        "MachineSoundText": "MachineSoundText",
-        "MachineSoundId": "MachineSoundId",
-        "TransferSoundText": "TransferSoundText",
-        "TransferSoundId": "TransferSoundId",
-        "DncSoundText": "DncSoundText",
-        "DncSoundId": "DncSoundId"
+        "AnsweringMachineConfig": "_:AnsweringMachineConfig",
+        "LiveSoundTextVoice": "_:LiveSoundTextVoice",
+        "MachineSoundTextVoice": "_:MachineSoundTextVoice",
+        "TransferSoundTextVoice": "_:TransferSoundTextVoice",
+        "TransferDigit": "_:TransferDigit",
+        "TransferNumber": "_:TransferNumber",
+        "DncSoundTextVoice": "_:DncSoundTextVoice",
+        "DncDigit": "_:DncDigit",
+        "MaxActiveTransfers": "_:MaxActiveTransfers",
+        "LiveSoundText": "_:LiveSoundText",
+        "LiveSoundId": "_:LiveSoundId",
+        "MachineSoundText": "_:MachineSoundText",
+        "MachineSoundId": "_:MachineSoundId",
+        "TransferSoundText": "_:TransferSoundText",
+        "TransferSoundId": "_:TransferSoundId",
+        "DncSoundText": "_:DncSoundText",
+        "DncSoundId": "_:DncSoundId"
     },
     "TextBroadcastConfig": {
-        "Message": "Message",
-        "BigMessageStrategy": "BigMessageStrategy"
+        "Message": "_:Message",
+        "BigMessageStrategy": "_:BigMessageStrategy"
     },
     "IvrBroadcastConfig": {
-        "DialplanXml": "DialplanXml"
+        "DialplanXml": "_:DialplanXml"
     },
     "TransferNumber": {
 
     },
     "CallTrackingConfig": {
-        "Screen": "Screen",
-        "Record": "Record",
-        "IntroSoundId": "IntroSoundId",
-        "WhisperSoundId": "WhisperSoundId",
-        "#TransferNumber": "TransferNumber"
+        "Screen": "_:Screen",
+        "Record": "_:Record",
+        "IntroSoundId": "_:IntroSoundId",
+        "WhisperSoundId": "_:WhisperSoundId",
+        "#TransferNumber": "_:TransferNumber"
     },
     "IvrInboundConfig": {
-        "DialplanXml": "DialplanXml"
+        "DialplanXml": "_:DialplanXml"
     },
     "LocalTimeZoneRestriction": {
-        "BeginTime": "BeginTime",
-        "EndTime": "EndTime"
+        "BeginTime": "_:BeginTime",
+        "EndTime": "_:EndTime"
     },
     "ContactBatch": {
         "id": "@id",
-        "Name": "Name",
-        "Status": "Status",
-        "BroadcastId": "BroadcastId",
-        "Created": "Created",
-        "Size": "Size",
-        "Remaining": "Remaining"
+        "Name": "_:Name",
+        "Status": "_:Status",
+        "BroadcastId": "_:BroadcastId",
+        "Created": "_:Created",
+        "Size": "_:Size",
+        "Remaining": "_:Remaining"
     },
     "DaysOfWeek": {
 
     },
     "BroadcastSchedule": {
         "id": "@id",
-        "StartTimeOfDay": "StartTimeOfDay",
-        "StopTimeOfDay": "StopTimeOfDay",
-        "TimeZone": "TimeZone",
-        "BeginDate": "BeginDate",
-        "EndDate": "EndDate",
-        "#DaysOfWeek": "DaysOfWeek"
+        "StartTimeOfDay": "_:StartTimeOfDay",
+        "StopTimeOfDay": "_:StopTimeOfDay",
+        "TimeZone": "_:TimeZone",
+        "BeginDate": "_:BeginDate",
+        "EndDate": "_:EndDate",
+        "#DaysOfWeek": "_:DaysOfWeek"
     },
     "UsageStats": {
-        "Duration": "Duration",
-        "BilledDuration": "BilledDuration",
-        "BilledAmount": "BilledAmount",
-        "Attempts": "Attempts",
-        "Actions": "Actions"
+        "Duration": "_:Duration",
+        "BilledDuration": "_:BilledDuration",
+        "BilledAmount": "_:BilledAmount",
+        "Attempts": "_:Attempts",
+        "Actions": "_:Actions"
     },
     "ResultStat": {
-        "Result": "Result",
-        "Attempts": "Attempts",
-        "Actions": "Actions"
+        "Result": "_:Result",
+        "Attempts": "_:Attempts",
+        "Actions": "_:Actions"
     },
     "ActionStatistics": {
-        "Unattempted": "Unattempted",
-        "RetryWait": "RetryWait",
-        "Finished": "Finished"
+        "Unattempted": "_:Unattempted",
+        "RetryWait": "_:RetryWait",
+        "Finished": "_:Finished"
     },
     "BroadcastStats": {
-        "#UsageStats": "UsageStats",
-        "#@ResultStats": "ResultStat",
-        "#ActionStatistics": "ActionStatistics"
+        "#UsageStats": "_:UsageStats",
+        "#@ResultStats": "_:ResultStat",
+        "#ActionStatistics": "_:ActionStatistics"
     },
     "CallRecord": {
-        "OriginateTime": "OriginateTime",
-        "AnswerTime": "AnswerTime",
-        "Duration": "Duration",
-        "#@RecordingMetas": "RecordingMeta"
+        "OriginateTime": "_:OriginateTime",
+        "AnswerTime": "_:AnswerTime",
+        "Duration": "_:Duration",
+        "#@RecordingMetas": "_:RecordingMeta"
     },
     "Call": {
-        "#@CallRecords": "CallRecord"
+        "#@CallRecords": "_:CallRecord"
     },
     "SoundMeta": {
         "id": "@id",
-        "Status": "Status",
-        "Name": "Name",
-        "Created": "Created",
-        "LengthInSeconds": "LengthInSeconds"
+        "Status": "_:Status",
+        "Name": "_:Name",
+        "Created": "_:Created",
+        "LengthInSeconds": "_:LengthInSeconds"
     },
     "RecordingMeta": {
         "id": "@id",
-        "Name": "Name",
-        "Created": "Created",
-        "LengthInSeconds": "LengthInSeconds"
+        "Name": "_:Name",
+        "Created": "_:Created",
+        "LengthInSeconds": "_:LengthInSeconds",
+        "Link": "_:Link"
     },
     "TextRecord": {
-        "Message": "Message"
+        "Message": "_:Message"
     },
     "Text": {
-        "Message": "Message",
-        "#@TextRecords": "TextRecord"
+        "Message": "_:Message",
+        "#@TextRecords": "_:TextRecord"
     },
     "AutoReply": {
         "id": "@id",
-        "Number": "Number",
-        "Keyword": "Keyword",
-        "Match": "Match",
-        "Message": "Message"
+        "Number": "_:Number",
+        "Keyword": "_:Keyword",
+        "Match": "_:Match",
+        "Message": "_:Message"
     },
     "SubscriptionFilter": {
-        "BroadcastId": "BroadcastId",
-        "BatchId": "BatchId",
-        "FromNumber": "FromNumber",
-        "ToNumber": "ToNumber",
-        "Inbound": "Inbound"
+        "BroadcastId": "_:BroadcastId",
+        "BatchId": "_:BatchId",
+        "FromNumber": "_:FromNumber",
+        "ToNumber": "_:ToNumber",
+        "Inbound": "_:Inbound"
     },
     "Subscription": {
         "id": "@id",
-        "Enabled": "Enabled",
-        "Endpoint": "Endpoint",
-        "NotificationFormat": "NotificationFormat",
-        "TriggerEvent": "TriggerEvent",
-        "#SubscriptionFilter": "SubscriptionFilter"
+        "Enabled": "_:Enabled",
+        "Endpoint": "_:Endpoint",
+        "NotificationFormat": "_:NotificationFormat",
+        "TriggerEvent": "_:TriggerEvent",
+        "#SubscriptionFilter": "_:SubscriptionFilter"
     },
     "Contact": {
         "id": "@id",
@@ -205,64 +212,66 @@
         "zipcode": "@zipcode",
         "homePhone": "@homePhone",
         "workPhone": "@workPhone",
-        "mobilePhone": "@mobilePhone"
+        "mobilePhone": "@mobilePhone",
+        "externalId": "@externalId",
+        "externalSystem": "@externalSystem"
     },
     "ContactHistory": {
 
     },
     "ContactList": {
         "id": "@id",
-        "Name": "Name",
-        "Size": "Size",
-        "Created": "Created"
+        "Name": "_:Name",
+        "Size": "_:Size",
+        "Created": "_:Created"
     },
     "Region": {
-        "Prefix": "Prefix",
-        "City": "City",
-        "State": "State",
-        "Zipcode": "Zipcode",
-        "Country": "Country",
-        "Lata": "Lata",
-        "RateCenter": "RateCenter",
-        "Latitude": "Latitude",
-        "Longitude": "Longitude",
-        "TimeZone": "TimeZone"
+        "Prefix": "_:Prefix",
+        "City": "_:City",
+        "State": "_:State",
+        "Zipcode": "_:Zipcode",
+        "Country": "_:Country",
+        "Lata": "_:Lata",
+        "RateCenter": "_:RateCenter",
+        "Latitude": "_:Latitude",
+        "Longitude": "_:Longitude",
+        "TimeZone": "_:TimeZone"
     },
     "LeaseInfo": {
-        "LeaseBegin": "LeaseBegin",
-        "LeaseEnd": "LeaseEnd",
-        "AutoRenew": "AutoRenew"
+        "LeaseBegin": "_:LeaseBegin",
+        "LeaseEnd": "_:LeaseEnd",
+        "AutoRenew": "_:AutoRenew"
     },
     "Number": {
-        "Number": "Number",
-        "NationalFormat": "NationalFormat",
-        "TollFree": "TollFree",
-        "Status": "Status"
+        "Number": "_:Number",
+        "NationalFormat": "_:NationalFormat",
+        "TollFree": "_:TollFree",
+        "Status": "_:Status"
     },
     "InboundCallConfiguration": {
 
     },
     "NumberConfiguration": {
-        "CallFeature": "CallFeature",
-        "TextFeature": "TextFeature",
-        "InboundCallConfigurationType": "InboundCallConfigurationType",
-        "#InboundCallConfiguration": "InboundCallConfiguration"
+        "CallFeature": "_:CallFeature",
+        "TextFeature": "_:TextFeature",
+        "InboundCallConfigurationType": "_:InboundCallConfigurationType",
+        "#InboundCallConfiguration": "_:InboundCallConfiguration"
     },
     "Keyword": {
-        "ShortCode": "ShortCode",
-        "Keyword": "Keyword",
-        "Status": "Status"
+        "ShortCode": "_:ShortCode",
+        "Keyword": "_:Keyword",
+        "Status": "_:Status"
     },
     "NumberOrder": {
         "id": "@id",
-        "Status": "Status",
-        "Created": "Created",
-        "TotalCost": "TotalCost",
-        "LocalNumbers": "LocalNumbers",
-        "TollFreeNumbers": "TollFreeNumbers",
-        "Keywords": "Keywords"
+        "Status": "_:Status",
+        "Created": "_:Created",
+        "TotalCost": "_:TotalCost",
+        "LocalNumbers": "_:LocalNumbers",
+        "TollFreeNumbers": "_:TollFreeNumbers",
+        "Keywords": "_:Keywords"
     },
     "Label": {
-        "Name": "Name"
+        "Name": "_:Name"
     }
 }

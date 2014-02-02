@@ -22,4 +22,5 @@ with({proto: Action.prototype}) {
     proto.created = null;
     proto.modified = null;
     proto.finalResult = null;
+    proto.labels = [];
 }

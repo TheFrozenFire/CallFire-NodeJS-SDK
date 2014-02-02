@@ -15,10 +15,10 @@ with({proto: CallRecord.prototype}) {
     proto.originateTime = null;
     proto.answerTime = null;
     proto.duration = null;
-    proto.recordingMetas = null;
+    proto.recordingMetas = [];
     proto.id = null;
     proto.result = null;
     proto.finishTime = null;
     proto.billedAmount = null;
-    proto.questionResponses = null;
+    proto.questionResponses = [];
 }

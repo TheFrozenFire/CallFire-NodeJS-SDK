@@ -18,5 +18,7 @@ with({proto: Contact.prototype}) {
     proto.homePhone = null;
     proto.workPhone = null;
     proto.mobilePhone = null;
-    proto.attributes = null;
+    proto.externalId = null;
+    proto.externalSystem = null;
+    proto.attributes = [];
 }

@@ -13,7 +13,7 @@ with({proto: Text.prototype}) {
     ]
 
     proto.message = null;
-    proto.textRecords = null;
+    proto.textRecords = [];
     proto.id = null;
     proto.fromNumber = null;
     proto.toNumber = null;
@@ -25,4 +25,5 @@ with({proto: Text.prototype}) {
     proto.created = null;
     proto.modified = null;
     proto.finalResult = null;
+    proto.labels = [];
 }

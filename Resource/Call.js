@@ -12,7 +12,7 @@ with({proto: Call.prototype}) {
         'Action'
     ]
 
-    proto.callRecords = null;
+    proto.callRecords = [];
     proto.id = null;
     proto.fromNumber = null;
     proto.toNumber = null;
@@ -24,4 +24,5 @@ with({proto: Call.prototype}) {
     proto.created = null;
     proto.modified = null;
     proto.finalResult = null;
+    proto.labels = [];
 }

@@ -12,6 +12,6 @@ with({proto: BroadcastStats.prototype}) {
     ]
 
     proto.usageStats = null;
-    proto.resultStats = null;
+    proto.resultStats = [];
     proto.actionStatistics = null;
 }

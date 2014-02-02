@@ -14,4 +14,5 @@ with({proto: RetryConfig.prototype}) {
     proto.maxAttempts = null;
     proto.minutesBetweenAttempts = null;
     proto.retryResults = null;
+    proto.retryPhoneTypes = null;
 }

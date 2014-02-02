@@ -17,5 +17,5 @@ with({proto: TextRecord.prototype}) {
     proto.result = null;
     proto.finishTime = null;
     proto.billedAmount = null;
-    proto.questionResponses = null;
+    proto.questionResponses = [];
 }

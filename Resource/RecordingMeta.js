@@ -15,4 +15,5 @@ with({proto: RecordingMeta.prototype}) {
     proto.name = null;
     proto.created = null;
     proto.lengthInSeconds = null;
+    proto.link = null;
 }

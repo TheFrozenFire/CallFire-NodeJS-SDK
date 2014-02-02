@@ -13,8 +13,12 @@ with({proto: VoiceBroadcastConfig.prototype}) {
     ]
 
     proto.answeringMachineConfig = null;
+    proto.liveSoundTextVoice = null;
+    proto.machineSoundTextVoice = null;
+    proto.transferSoundTextVoice = null;
     proto.transferDigit = null;
     proto.transferNumber = null;
+    proto.dncSoundTextVoice = null;
     proto.dncDigit = null;
     proto.maxActiveTransfers = null;
     proto.liveSoundText = null;
