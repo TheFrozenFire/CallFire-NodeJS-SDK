@@ -5,6 +5,7 @@ var QuestionResponse = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(QuestionResponse, Resource);
+module.exports = QuestionResponse;
 with({proto: QuestionResponse.prototype}) {
     proto.types = [
         'QuestionResponse'
@@ -13,6 +14,3 @@ with({proto: QuestionResponse.prototype}) {
     proto.question = null;
     proto.response = null;
 }
-
-module.exports = QuestionResponse;
-

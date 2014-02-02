@@ -5,6 +5,7 @@ var RetryConfig = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(RetryConfig, Resource);
+module.exports = RetryConfig;
 with({proto: RetryConfig.prototype}) {
     proto.types = [
         'RetryConfig'
@@ -14,6 +15,3 @@ with({proto: RetryConfig.prototype}) {
     proto.minutesBetweenAttempts = null;
     proto.retryResults = null;
 }
-
-module.exports = RetryConfig;
-

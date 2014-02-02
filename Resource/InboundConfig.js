@@ -5,6 +5,7 @@ var InboundConfig = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(InboundConfig, Resource);
+module.exports = InboundConfig;
 with({proto: InboundConfig.prototype}) {
     proto.types = [
         'InboundConfig'
@@ -12,6 +13,3 @@ with({proto: InboundConfig.prototype}) {
 
     proto.id = null;
 }
-
-module.exports = InboundConfig;
-

@@ -5,6 +5,7 @@ var AutoReply = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(AutoReply, Resource);
+module.exports = AutoReply;
 with({proto: AutoReply.prototype}) {
     proto.types = [
         'AutoReply'
@@ -16,6 +17,3 @@ with({proto: AutoReply.prototype}) {
     proto.match = null;
     proto.message = null;
 }
-
-module.exports = AutoReply;
-

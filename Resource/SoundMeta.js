@@ -5,6 +5,7 @@ var SoundMeta = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(SoundMeta, Resource);
+module.exports = SoundMeta;
 with({proto: SoundMeta.prototype}) {
     proto.types = [
         'SoundMeta'
@@ -16,6 +17,3 @@ with({proto: SoundMeta.prototype}) {
     proto.created = null;
     proto.lengthInSeconds = null;
 }
-
-module.exports = SoundMeta;
-

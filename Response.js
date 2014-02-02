@@ -1,10 +1,12 @@
-var callfire = module.parent;
+var callfire = require('./callfire');
 
 var Response = function(document) {
     if(document !== undefined) {
         this.load_xml(document);
     }
-}; with({proto: Response.prototype}) {
+}
+module.exports = Response;
+with({proto: Response.prototype}) {
     proto.queryMap = require('./querymap.json');
 
     proto.load_xml = function(document) {
@@ -19,10 +21,7 @@ var Response = function(document) {
         var unbounded = false;
         
         if(this.queryMap[resource_name] !== undefined) {
-            resource = new callfire.exports.resource[resource_name]; // callfire refers to module, instead of class itself
-            
-            console.log(callfire.exports.resource[resource_name].prototype);
-            return;
+            resource = new callfire.resource[resource_name];
             
             if(resource !== undefined) {
                 for(i in resource.types) {
@@ -36,7 +35,17 @@ var Response = function(document) {
                 }
                 
                 for(key in resource_map) {
-                    resource[key] = element.get(resource_map[key]).text();
+                    var resource_field = element.get('_' + resource_map[key], callfire.namespaces);
+                    if(resource_field !== undefined) {
+                        resource[key] = resource_field.text();
+                    }
+                }
+                
+                for(key in child_resource_map) {
+                    var child_resource_element = element.get(child_resource_map[key], callfire.namespaces);
+                    if(child_resource_element !== undefined) {
+                        resource[key] = child_resource_element.text();
+                    }
                 }
             }
         }
@@ -44,5 +53,3 @@ var Response = function(document) {
         return resource;
     }
 }
-
-module.exports = Response;

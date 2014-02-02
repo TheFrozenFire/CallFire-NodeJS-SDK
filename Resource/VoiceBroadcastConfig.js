@@ -5,6 +5,7 @@ var VoiceBroadcastConfig = function() {
     BroadcastConfig.apply(this, arguments);
 }
 util.inherits(VoiceBroadcastConfig, BroadcastConfig);
+module.exports = VoiceBroadcastConfig;
 with({proto: VoiceBroadcastConfig.prototype}) {
     proto.types = [
         'VoiceBroadcastConfig',
@@ -30,6 +31,3 @@ with({proto: VoiceBroadcastConfig.prototype}) {
     proto.localTimeZoneRestriction = null;
     proto.retryConfig = null;
 }
-
-module.exports = VoiceBroadcastConfig;
-

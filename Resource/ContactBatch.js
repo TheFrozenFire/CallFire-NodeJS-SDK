@@ -5,6 +5,7 @@ var ContactBatch = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(ContactBatch, Resource);
+module.exports = ContactBatch;
 with({proto: ContactBatch.prototype}) {
     proto.types = [
         'ContactBatch'
@@ -18,6 +19,3 @@ with({proto: ContactBatch.prototype}) {
     proto.size = null;
     proto.remaining = null;
 }
-
-module.exports = ContactBatch;
-

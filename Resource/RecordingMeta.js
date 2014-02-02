@@ -5,6 +5,7 @@ var RecordingMeta = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(RecordingMeta, Resource);
+module.exports = RecordingMeta;
 with({proto: RecordingMeta.prototype}) {
     proto.types = [
         'RecordingMeta'
@@ -15,6 +16,3 @@ with({proto: RecordingMeta.prototype}) {
     proto.created = null;
     proto.lengthInSeconds = null;
 }
-
-module.exports = RecordingMeta;
-

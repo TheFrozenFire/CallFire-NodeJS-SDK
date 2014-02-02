@@ -5,6 +5,7 @@ var Broadcast = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Broadcast, Resource);
+module.exports = Broadcast;
 with({proto: Broadcast.prototype}) {
     proto.types = [
         'Broadcast'
@@ -19,6 +20,3 @@ with({proto: Broadcast.prototype}) {
     proto.textBroadcastConfig = null;
     proto.ivrBroadcastConfig = null;
 }
-
-module.exports = Broadcast;
-

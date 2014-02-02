@@ -5,6 +5,7 @@ var Text = function() {
     Action.apply(this, arguments);
 }
 util.inherits(Text, Action);
+module.exports = Text;
 with({proto: Text.prototype}) {
     proto.types = [
         'Text',
@@ -25,6 +26,3 @@ with({proto: Text.prototype}) {
     proto.modified = null;
     proto.finalResult = null;
 }
-
-module.exports = Text;
-

@@ -5,12 +5,10 @@ var InboundCallConfiguration = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(InboundCallConfiguration, Resource);
+module.exports = InboundCallConfiguration;
 with({proto: InboundCallConfiguration.prototype}) {
     proto.types = [
         'InboundCallConfiguration'
     ]
 
 }
-
-module.exports = InboundCallConfiguration;
-

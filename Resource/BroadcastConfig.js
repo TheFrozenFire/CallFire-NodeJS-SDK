@@ -5,6 +5,7 @@ var BroadcastConfig = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(BroadcastConfig, Resource);
+module.exports = BroadcastConfig;
 with({proto: BroadcastConfig.prototype}) {
     proto.types = [
         'BroadcastConfig'
@@ -16,6 +17,3 @@ with({proto: BroadcastConfig.prototype}) {
     proto.localTimeZoneRestriction = null;
     proto.retryConfig = null;
 }
-
-module.exports = BroadcastConfig;
-

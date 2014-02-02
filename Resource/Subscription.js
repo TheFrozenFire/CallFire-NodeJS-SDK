@@ -5,6 +5,7 @@ var Subscription = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Subscription, Resource);
+module.exports = Subscription;
 with({proto: Subscription.prototype}) {
     proto.types = [
         'Subscription'
@@ -17,6 +18,3 @@ with({proto: Subscription.prototype}) {
     proto.triggerEvent = null;
     proto.subscriptionFilter = null;
 }
-
-module.exports = Subscription;
-

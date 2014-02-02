@@ -5,6 +5,7 @@ var Region = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Region, Resource);
+module.exports = Region;
 with({proto: Region.prototype}) {
     proto.types = [
         'Region'
@@ -21,6 +22,3 @@ with({proto: Region.prototype}) {
     proto.longitude = null;
     proto.timeZone = null;
 }
-
-module.exports = Region;
-

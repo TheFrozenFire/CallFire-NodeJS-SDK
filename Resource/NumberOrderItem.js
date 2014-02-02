@@ -5,6 +5,7 @@ var NumberOrderItem = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(NumberOrderItem, Resource);
+module.exports = NumberOrderItem;
 with({proto: NumberOrderItem.prototype}) {
     proto.types = [
         'NumberOrderItem'
@@ -14,6 +15,3 @@ with({proto: NumberOrderItem.prototype}) {
     proto.unitCost = null;
     proto.fulfilled = null;
 }
-
-module.exports = NumberOrderItem;
-

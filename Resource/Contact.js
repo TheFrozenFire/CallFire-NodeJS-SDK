@@ -5,6 +5,7 @@ var Contact = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Contact, Resource);
+module.exports = Contact;
 with({proto: Contact.prototype}) {
     proto.types = [
         'Contact'
@@ -19,6 +20,3 @@ with({proto: Contact.prototype}) {
     proto.mobilePhone = null;
     proto.attributes = null;
 }
-
-module.exports = Contact;
-

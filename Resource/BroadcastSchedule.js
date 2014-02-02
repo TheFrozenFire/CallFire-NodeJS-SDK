@@ -5,6 +5,7 @@ var BroadcastSchedule = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(BroadcastSchedule, Resource);
+module.exports = BroadcastSchedule;
 with({proto: BroadcastSchedule.prototype}) {
     proto.types = [
         'BroadcastSchedule'
@@ -18,6 +19,3 @@ with({proto: BroadcastSchedule.prototype}) {
     proto.endDate = null;
     proto.daysOfWeek = null;
 }
-
-module.exports = BroadcastSchedule;
-

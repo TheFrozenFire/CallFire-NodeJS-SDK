@@ -5,6 +5,7 @@ var ContactList = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(ContactList, Resource);
+module.exports = ContactList;
 with({proto: ContactList.prototype}) {
     proto.types = [
         'ContactList'
@@ -15,6 +16,3 @@ with({proto: ContactList.prototype}) {
     proto.size = null;
     proto.created = null;
 }
-
-module.exports = ContactList;
-

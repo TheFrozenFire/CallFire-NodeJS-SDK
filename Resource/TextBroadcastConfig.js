@@ -5,6 +5,7 @@ var TextBroadcastConfig = function() {
     BroadcastConfig.apply(this, arguments);
 }
 util.inherits(TextBroadcastConfig, BroadcastConfig);
+module.exports = TextBroadcastConfig;
 with({proto: TextBroadcastConfig.prototype}) {
     proto.types = [
         'TextBroadcastConfig',
@@ -19,6 +20,3 @@ with({proto: TextBroadcastConfig.prototype}) {
     proto.localTimeZoneRestriction = null;
     proto.retryConfig = null;
 }
-
-module.exports = TextBroadcastConfig;
-

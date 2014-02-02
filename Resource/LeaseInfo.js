@@ -5,6 +5,7 @@ var LeaseInfo = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(LeaseInfo, Resource);
+module.exports = LeaseInfo;
 with({proto: LeaseInfo.prototype}) {
     proto.types = [
         'LeaseInfo'
@@ -14,6 +15,3 @@ with({proto: LeaseInfo.prototype}) {
     proto.leaseEnd = null;
     proto.autoRenew = null;
 }
-
-module.exports = LeaseInfo;
-

@@ -5,6 +5,7 @@ var Call = function() {
     Action.apply(this, arguments);
 }
 util.inherits(Call, Action);
+module.exports = Call;
 with({proto: Call.prototype}) {
     proto.types = [
         'Call',
@@ -24,6 +25,3 @@ with({proto: Call.prototype}) {
     proto.modified = null;
     proto.finalResult = null;
 }
-
-module.exports = Call;
-

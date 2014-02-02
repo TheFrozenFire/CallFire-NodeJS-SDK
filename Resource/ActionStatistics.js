@@ -5,6 +5,7 @@ var ActionStatistics = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(ActionStatistics, Resource);
+module.exports = ActionStatistics;
 with({proto: ActionStatistics.prototype}) {
     proto.types = [
         'ActionStatistics'
@@ -14,6 +15,3 @@ with({proto: ActionStatistics.prototype}) {
     proto.retryWait = null;
     proto.finished = null;
 }
-
-module.exports = ActionStatistics;
-

@@ -5,6 +5,7 @@ var UsageStats = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(UsageStats, Resource);
+module.exports = UsageStats;
 with({proto: UsageStats.prototype}) {
     proto.types = [
         'UsageStats'
@@ -16,6 +17,3 @@ with({proto: UsageStats.prototype}) {
     proto.attempts = null;
     proto.actions = null;
 }
-
-module.exports = UsageStats;
-

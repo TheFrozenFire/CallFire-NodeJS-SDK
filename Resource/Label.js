@@ -5,6 +5,7 @@ var Label = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Label, Resource);
+module.exports = Label;
 with({proto: Label.prototype}) {
     proto.types = [
         'Label'
@@ -12,6 +13,3 @@ with({proto: Label.prototype}) {
 
     proto.name = null;
 }
-
-module.exports = Label;
-

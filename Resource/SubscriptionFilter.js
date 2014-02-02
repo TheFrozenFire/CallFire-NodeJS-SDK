@@ -5,6 +5,7 @@ var SubscriptionFilter = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(SubscriptionFilter, Resource);
+module.exports = SubscriptionFilter;
 with({proto: SubscriptionFilter.prototype}) {
     proto.types = [
         'SubscriptionFilter'
@@ -16,6 +17,3 @@ with({proto: SubscriptionFilter.prototype}) {
     proto.toNumber = null;
     proto.inbound = null;
 }
-
-module.exports = SubscriptionFilter;
-

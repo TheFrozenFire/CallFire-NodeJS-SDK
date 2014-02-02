@@ -5,6 +5,7 @@ var Action = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Action, Resource);
+module.exports = Action;
 with({proto: Action.prototype}) {
     proto.types = [
         'Action'
@@ -22,6 +23,3 @@ with({proto: Action.prototype}) {
     proto.modified = null;
     proto.finalResult = null;
 }
-
-module.exports = Action;
-

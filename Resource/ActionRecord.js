@@ -5,6 +5,7 @@ var ActionRecord = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(ActionRecord, Resource);
+module.exports = ActionRecord;
 with({proto: ActionRecord.prototype}) {
     proto.types = [
         'ActionRecord'
@@ -16,6 +17,3 @@ with({proto: ActionRecord.prototype}) {
     proto.billedAmount = null;
     proto.questionResponses = null;
 }
-
-module.exports = ActionRecord;
-

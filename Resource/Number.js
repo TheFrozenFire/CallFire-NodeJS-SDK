@@ -5,6 +5,7 @@ var Number = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(Number, Resource);
+module.exports = Number;
 with({proto: Number.prototype}) {
     proto.types = [
         'Number'
@@ -15,6 +16,3 @@ with({proto: Number.prototype}) {
     proto.tollFree = null;
     proto.status = null;
 }
-
-module.exports = Number;
-

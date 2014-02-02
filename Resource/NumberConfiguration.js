@@ -5,6 +5,7 @@ var NumberConfiguration = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(NumberConfiguration, Resource);
+module.exports = NumberConfiguration;
 with({proto: NumberConfiguration.prototype}) {
     proto.types = [
         'NumberConfiguration'
@@ -15,6 +16,3 @@ with({proto: NumberConfiguration.prototype}) {
     proto.inboundCallConfigurationType = null;
     proto.inboundCallConfiguration = null;
 }
-
-module.exports = NumberConfiguration;
-

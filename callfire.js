@@ -1,7 +1,9 @@
 var libxmljs = require('libxmljs');
 
 var callfire = function() {
-}; with({proto: callfire}) { // singleton
+}
+module.exports = callfire;
+with({proto: callfire}) { // singleton
     proto.verify_credentials = function(username, password, callback) {
         this.Number.query_numbers(username, password, { MaxResults: 1 }, function(resource_list, exception) {
             if(resource_list !== undefined) {
@@ -58,6 +60,11 @@ var callfire = function() {
     
     proto.resource = function(type) {
         return new this.resource[type];
+    }
+    
+    proto.namespaces = {
+        _: 'http://api.callfire.com/data',
+        r: 'http://api.callfire.com/resource'
     }
     
     proto.client.Client = require('./Client');
@@ -185,5 +192,3 @@ var callfire = function() {
     proto.STRATEGY_DO_NOT_SEND = 'DO_NOT_SEND';
     proto.STRATEGY_TRIM = 'TRIM';
 }
-
-module.exports = callfire;

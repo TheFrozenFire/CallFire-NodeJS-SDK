@@ -5,6 +5,7 @@ var NumberOrder = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(NumberOrder, Resource);
+module.exports = NumberOrder;
 with({proto: NumberOrder.prototype}) {
     proto.types = [
         'NumberOrder'
@@ -18,6 +19,3 @@ with({proto: NumberOrder.prototype}) {
     proto.tollFreeNumbers = null;
     proto.keywords = null;
 }
-
-module.exports = NumberOrder;
-

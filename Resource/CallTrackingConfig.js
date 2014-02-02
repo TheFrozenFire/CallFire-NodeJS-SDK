@@ -5,6 +5,7 @@ var CallTrackingConfig = function() {
     InboundConfig.apply(this, arguments);
 }
 util.inherits(CallTrackingConfig, InboundConfig);
+module.exports = CallTrackingConfig;
 with({proto: CallTrackingConfig.prototype}) {
     proto.types = [
         'CallTrackingConfig',
@@ -18,6 +19,3 @@ with({proto: CallTrackingConfig.prototype}) {
     proto.transferNumber = null;
     proto.id = null;
 }
-
-module.exports = CallTrackingConfig;
-

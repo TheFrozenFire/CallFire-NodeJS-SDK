@@ -3,7 +3,8 @@ var http = require('http'),
     util = require('util');
 
 var Client = function() {
-};
+}
+module.exports = Client;
 with({proto: Client.prototype}) {
     proto.base_path = 'https://www.callfire.com/api/1.1/rest';
     
@@ -40,5 +41,3 @@ with({proto: Client.prototype}) {
         request.end();
     }
 }
-
-module.exports = Client;

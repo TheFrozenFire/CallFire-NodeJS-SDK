@@ -5,6 +5,7 @@ var ResultStat = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(ResultStat, Resource);
+module.exports = ResultStat;
 with({proto: ResultStat.prototype}) {
     proto.types = [
         'ResultStat'
@@ -14,6 +15,3 @@ with({proto: ResultStat.prototype}) {
     proto.attempts = null;
     proto.actions = null;
 }
-
-module.exports = ResultStat;
-

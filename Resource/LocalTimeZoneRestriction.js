@@ -5,6 +5,7 @@ var LocalTimeZoneRestriction = function() {
     Resource.apply(this, arguments);
 }
 util.inherits(LocalTimeZoneRestriction, Resource);
+module.exports = LocalTimeZoneRestriction;
 with({proto: LocalTimeZoneRestriction.prototype}) {
     proto.types = [
         'LocalTimeZoneRestriction'
@@ -13,6 +14,3 @@ with({proto: LocalTimeZoneRestriction.prototype}) {
     proto.beginTime = null;
     proto.endTime = null;
 }
-
-module.exports = LocalTimeZoneRestriction;
-

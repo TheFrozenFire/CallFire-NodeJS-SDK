@@ -5,6 +5,7 @@ var CallRecord = function() {
     ActionRecord.apply(this, arguments);
 }
 util.inherits(CallRecord, ActionRecord);
+module.exports = CallRecord;
 with({proto: CallRecord.prototype}) {
     proto.types = [
         'CallRecord',
@@ -21,6 +22,3 @@ with({proto: CallRecord.prototype}) {
     proto.billedAmount = null;
     proto.questionResponses = null;
 }
-
-module.exports = CallRecord;
-

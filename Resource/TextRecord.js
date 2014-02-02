@@ -5,6 +5,7 @@ var TextRecord = function() {
     ActionRecord.apply(this, arguments);
 }
 util.inherits(TextRecord, ActionRecord);
+module.exports = TextRecord;
 with({proto: TextRecord.prototype}) {
     proto.types = [
         'TextRecord',
@@ -18,6 +19,3 @@ with({proto: TextRecord.prototype}) {
     proto.billedAmount = null;
     proto.questionResponses = null;
 }
-
-module.exports = TextRecord;
-

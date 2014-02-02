@@ -5,6 +5,7 @@ var IvrBroadcastConfig = function() {
     BroadcastConfig.apply(this, arguments);
 }
 util.inherits(IvrBroadcastConfig, BroadcastConfig);
+module.exports = IvrBroadcastConfig;
 with({proto: IvrBroadcastConfig.prototype}) {
     proto.types = [
         'IvrBroadcastConfig',
@@ -18,6 +19,3 @@ with({proto: IvrBroadcastConfig.prototype}) {
     proto.localTimeZoneRestriction = null;
     proto.retryConfig = null;
 }
-
-module.exports = IvrBroadcastConfig;
-
