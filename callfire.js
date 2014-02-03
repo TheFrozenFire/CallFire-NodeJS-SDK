@@ -31,6 +31,10 @@ with({proto: callfire}) { // singleton
         return new this.response[type](node);
     }
     
+    proto.request = function(type) {
+        return new this.request[type];
+    }
+    
     proto.resource = function(type) {
         return new this.resource[type];
     }
@@ -95,6 +99,50 @@ with({proto: callfire}) { // singleton
     proto.resource.TransferNumber = require('./Resource/TransferNumber');
     proto.resource.UsageStats = require('./Resource/UsageStats');
     proto.resource.VoiceBroadcastConfig = require('./Resource/VoiceBroadcastConfig');
+
+    proto.request.AddContactsToList = require('./Request/AddContactsToList');
+    proto.request.ConfigureNumber = require('./Request/ConfigureNumber');
+    proto.request.ControlBroadcast = require('./Request/ControlBroadcast');
+    proto.request.ControlContactBatch = require('./Request/ControlContactBatch');
+    proto.request.CreateAutoReply = require('./Request/CreateAutoReply');
+    proto.request.CreateBroadcast = require('./Request/CreateBroadcast');
+    proto.request.CreateBroadcastSchedule = require('./Request/CreateBroadcastSchedule');
+    proto.request.CreateContactBatch = require('./Request/CreateContactBatch');
+    proto.request.CreateContactList = require('./Request/CreateContactList');
+    proto.request.CreateNumberOrder = require('./Request/CreateNumberOrder');
+    proto.request.CreateSound = require('./Request/CreateSound');
+    proto.request.CreateSubscription = require('./Request/CreateSubscription');
+    proto.request.DeleteLabel = require('./Request/DeleteLabel');
+    proto.request.GetBroadcastStats = require('./Request/GetBroadcastStats');
+    proto.request.GetContactHistory = require('./Request/GetContactHistory');
+    proto.request.GetNumber = require('./Request/GetNumber');
+    proto.request.LabelBroadcast = require('./Request/LabelBroadcast');
+    proto.request.LabelNumber = require('./Request/LabelNumber');
+    proto.request.QueryAutoReplies = require('./Request/QueryAutoReplies');
+    proto.request.QueryBroadcastSchedule = require('./Request/QueryBroadcastSchedule');
+    proto.request.QueryBroadcasts = require('./Request/QueryBroadcasts');
+    proto.request.QueryCalls = require('./Request/QueryCalls');
+    proto.request.QueryContactBatches = require('./Request/QueryContactBatches');
+    proto.request.QueryContactLists = require('./Request/QueryContactLists');
+    proto.request.QueryContacts = require('./Request/QueryContacts');
+    proto.request.QueryKeywords = require('./Request/QueryKeywords');
+    proto.request.QueryLabels = require('./Request/QueryLabels');
+    proto.request.QueryNumbers = require('./Request/QueryNumbers');
+    proto.request.QueryRegions = require('./Request/QueryRegions');
+    proto.request.QuerySoundMeta = require('./Request/QuerySoundMeta');
+    proto.request.QuerySubscriptions = require('./Request/QuerySubscriptions');
+    proto.request.QueryTexts = require('./Request/QueryTexts');
+    proto.request.Release = require('./Request/Release');
+    proto.request.RemoveContacts = require('./Request/RemoveContacts');
+    proto.request.RemoveContactsFromList = require('./Request/RemoveContactsFromList');
+    proto.request.SearchAvailableKeywords = require('./Request/SearchAvailableKeywords');
+    proto.request.SearchAvailableNumbers = require('./Request/SearchAvailableNumbers');
+    proto.request.SendCall = require('./Request/SendCall');
+    proto.request.SendText = require('./Request/SendText');
+    proto.request.UnlabelBroadcast = require('./Request/UnlabelBroadcast');
+    proto.request.UnlabelNumber = require('./Request/UnlabelNumber');
+    proto.request.UpdateBroadcast = require('./Request/UpdateBroadcast');
+    proto.request.UpdateSubscription = require('./Request/UpdateSubscription');
     
     proto.response.Response = require('./Response');
     proto.response.ResourceList = require('./Response/ResourceList');
