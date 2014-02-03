@@ -6,8 +6,9 @@ var Number = function() {
 }
 util.inherits(Number, Client);
 with({proto: Number.prototype}) {
-    proto.get_number = function(username, password, number, callback) {
-        
+    proto.get_number = function(number, callback) {
+        var uri = this.get_uri('/number/%s', number);
+        return this.get(uri, {}, callback);
     }
 }
 

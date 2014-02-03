@@ -1,43 +1,96 @@
 var http = require('http'),
+    https = require('https'),
     querystring = require('querystring'),
-    util = require('util');
+    url = require('url'),
+    util = require('util'),
+    callfire = require('callfire'),
+    libxmljs = require('libxmljs');
 
-var Client = function() {
+var Client = function(username, password) {
+    this.username = username;
+    this.password = password;
 }
 module.exports = Client;
 with({proto: Client.prototype}) {
     proto.base_path = 'https://www.callfire.com/api/1.1/rest';
     
+    proto.username = null;
+    proto.password = null;
+    
     proto.get_uri = function(path) {
-        return this.base_path + util.format.apply(util, [path].concat(arguments.slice(1)));
+        return this.base_path + util.format.apply(util, [path].concat(Array.prototype.slice.call(arguments, 1)));
+    }
+    
+    proto.basic_auth_string = function(username, password) {
+        return new Buffer(username + ':' + password).toString('base64');
     }
     
     proto.get = function(uri, parameters, callback) {
         var request;
         var response_data = '';
+        var options;
+        var handler;
     
         if(parameters !== undefined && parameters.length > 0) {
-            path = path + '?' + querystring.stringify(parameters);
+            uri = uri + '?' + querystring.stringify(parameters);
         }
+        
+        options = url.parse(uri);
+        options.method = 'GET';
+        options.headers = {
+            'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
+        }
+        
+        handler = (options.protocol == 'https:') ? https : http;
     
-        request = this.request({
-            hostname: uri,
-            method: 'GET'
-        }, function (response) {
+        request = handler.request(options, function (response) {
             response.on('data', function(chunk) {
-                response_data += chunk;
+                response_data += chunk.toString();
+            });
+            
+            response.on('end', function() {
+                callback(response_data);
             });
         });
         
         request.on('error', function(error) {
-            var exception = new callfire.resource_exception(undefined, error.message);
-            callback(undefined, exception);
-        });
-        
-        request.on('end', function() {
-            callback(response);
+            var exception = new callfire.response.ResourceException;
+            exception.message = error.message;
+            callback(exception);
         });
         
         request.end();
+        
+        return request;
+    }
+    
+    proto.response = function(response) {
+        var document = libxmljs.parseXml(response);
+        
+        if(document === undefined) {
+            return null;
+        }
+        
+        var root = document.root();
+        var response_object = null;
+        
+        if(root !== undefined) {
+            switch(root.name()) {
+                case 'ResourceList':
+                    response_object = callfire.response('ResourceList', root);
+                    break;
+                case 'Resource':
+                    response_object = callfire.response('Resource', root);
+                    break;
+                case 'ResourceReference':
+                    response_object = callfire.response('ResourceReference', root);
+                    break;
+                case 'ResourceException':
+                    response_object = callfire.response('ResourceException', root);
+                    break;
+            }
+        }
+        
+        return response_object;
     }
 }

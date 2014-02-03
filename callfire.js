@@ -1,6 +1,5 @@
-var libxmljs = require('libxmljs');
-
-var callfire = function() {
+var callfire = function(username, password, type) {
+    return callfire.client(username, password, type);
 }
 module.exports = callfire;
 with({proto: callfire}) { // singleton
@@ -24,38 +23,12 @@ with({proto: callfire}) { // singleton
         return true;
     }
     
-    proto.client = function(type) {
-        return new this.client[type];
+    proto.client = function(username, password, type) {
+        return new this.client[type](username, password);
     }
     
-    proto.response = function(response) {
-        var document = libxmljs.parseXml(response);
-        
-        if(document === undefined) {
-            return null;
-        }
-        
-        var root = document.root();
-        var response_object = null;
-        
-        if(root !== undefined) {
-            switch(root.name()) {
-                case 'ResourceList':
-                    response_object = new this.response.ResourceList(root);
-                    break;
-                case 'Resource':
-                    response_object = new this.response.Resource(root);
-                    break;
-                case 'ResourceReference':
-                    response_object = new this.response.ResourceReference(root);
-                    break;
-                case 'ResourceException':
-                    response_object = new this.response.ResourceException(root);
-                    break;
-            }
-        }
-        
-        return response_object;
+    proto.response = function(type, node) {
+        return new this.response[type](node);
     }
     
     proto.resource = function(type) {
