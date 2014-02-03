@@ -64,6 +64,126 @@ with({proto: Client.prototype}) {
         return request;
     }
     
+    proto.post = function(uri, parameters, callback) {
+        var request;
+        var response_data = '';
+        var options;
+        var handler;
+        
+        options = url.parse(uri);
+        options.method = 'POST';
+        options.headers = {
+            'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
+        }
+        
+        handler = (options.protocol == 'https:') ? https : http;
+    
+        request = handler.request(options, function (response) {
+            response.on('data', function(chunk) {
+                response_data += chunk.toString();
+            });
+            
+            response.on('end', function() {
+                callback(response_data);
+            });
+        });
+        
+        request.on('error', function(error) {
+            var exception = new callfire.response.ResourceException;
+            exception.message = error.message;
+            callback(exception);
+        });
+        
+            
+        if(parameters !== undefined && parameters.length > 0) {
+            request.write(querystring.stringify(parameters));
+        }
+        
+        request.end();
+        
+        return request;
+    }
+    
+    proto.put = function(uri, parameters, callback) {
+        var request;
+        var response_data = '';
+        var options;
+        var handler;
+        
+        options = url.parse(uri);
+        options.method = 'PUT';
+        options.headers = {
+            'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
+        }
+        
+        handler = (options.protocol == 'https:') ? https : http;
+    
+        request = handler.request(options, function (response) {
+            response.on('data', function(chunk) {
+                response_data += chunk.toString();
+            });
+            
+            response.on('end', function() {
+                callback(response_data);
+            });
+        });
+        
+        request.on('error', function(error) {
+            var exception = new callfire.response.ResourceException;
+            exception.message = error.message;
+            callback(exception);
+        });
+        
+            
+        if(parameters !== undefined && parameters.length > 0) {
+            request.write(querystring.stringify(parameters));
+        }
+        
+        request.end();
+        
+        return request;
+    }
+    
+    proto.delete = function(uri, parameters, callback) {
+        var request;
+        var response_data = '';
+        var options;
+        var handler;
+        
+        options = url.parse(uri);
+        options.method = 'DELETE';
+        options.headers = {
+            'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
+        }
+        
+        handler = (options.protocol == 'https:') ? https : http;
+    
+        request = handler.request(options, function (response) {
+            response.on('data', function(chunk) {
+                response_data += chunk.toString();
+            });
+            
+            response.on('end', function() {
+                callback(response_data);
+            });
+        });
+        
+        request.on('error', function(error) {
+            var exception = new callfire.response.ResourceException;
+            exception.message = error.message;
+            callback(exception);
+        });
+        
+            
+        if(parameters !== undefined && parameters.length > 0) {
+            request.write(querystring.stringify(parameters));
+        }
+        
+        request.end();
+        
+        return request;
+    }
+    
     proto.response = function(response) {
         var document = libxmljs.parseXml(response);
         

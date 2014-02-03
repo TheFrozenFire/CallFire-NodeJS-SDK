@@ -4,7 +4,8 @@ var callfire = function(username, password, type) {
 module.exports = callfire;
 with({proto: callfire}) { // singleton
     proto.verify_credentials = function(username, password, callback) {
-        this.Number.query_numbers(username, password, { MaxResults: 1 }, function(resource_list, exception) {
+        var numberClient = callfire(username, password, 'Number');
+        numberClient.QueryNumbers({ MaxResults: 1 }, function(resource_list, exception) {
             if(resource_list !== undefined) {
                 callback(true);
             } else {
