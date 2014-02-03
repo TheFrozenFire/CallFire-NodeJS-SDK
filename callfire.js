@@ -40,22 +40,14 @@ with({proto: callfire}) { // singleton
         r: 'http://api.callfire.com/resource'
     }
     
-    proto.client.Client = require('./Client');
     proto.client.Broadcast = require('./Client/Broadcast');
-    proto.client.Subscription = require('./Client/Subscription');
-    proto.client.Text = require('./Client/Text');
     proto.client.Call = require('./Client/Call');
     proto.client.Contact = require('./Client/Contact');
-    proto.client.Number = require('./Client/Number');
     proto.client.Label = require('./Client/Label');
-    
-    proto.response.Response = require('./Response');
-    proto.response.ResourceList = require('./Response/ResourceList');
-    proto.response.Resource = require('./Response/Resource');
-    proto.response.ResourceReference = require('./Response/ResourceReference');
-    proto.response.ResourceException = require('./Response/ResourceException');
-    
-    proto.resource.Resource = require('./Resource');
+    proto.client.Number = require('./Client/Number');
+    proto.client.Subscription = require('./Client/Subscription');
+    proto.client.Text = require('./Client/Text');
+
     proto.resource.Action = require('./Resource/Action');
     proto.resource.ActionRecord = require('./Resource/ActionRecord');
     proto.resource.ActionStatistics = require('./Resource/ActionStatistics');
@@ -90,6 +82,7 @@ with({proto: callfire}) { // singleton
     proto.resource.Region = require('./Resource/Region');
     proto.resource.ResultStat = require('./Resource/ResultStat');
     proto.resource.RetryConfig = require('./Resource/RetryConfig');
+    proto.resource.RetryPhoneTypes = require('./Resource/RetryPhoneTypes');
     proto.resource.RetryResults = require('./Resource/RetryResults');
     proto.resource.SoundMeta = require('./Resource/SoundMeta');
     proto.resource.Subscription = require('./Resource/Subscription');
@@ -102,7 +95,13 @@ with({proto: callfire}) { // singleton
     proto.resource.TransferNumber = require('./Resource/TransferNumber');
     proto.resource.UsageStats = require('./Resource/UsageStats');
     proto.resource.VoiceBroadcastConfig = require('./Resource/VoiceBroadcastConfig');
-
+    
+    proto.response.Response = require('./Response');
+    proto.response.ResourceList = require('./Response/ResourceList');
+    proto.response.Resource = require('./Response/Resource');
+    proto.response.ResourceReference = require('./Response/ResourceReference');
+    proto.response.ResourceException = require('./Response/ResourceException');
+    
     proto.AMCONFIG_AM_ONLY = 'AM_ONLY';
     proto.AMCONFIG_AM_AND_LIVE = 'AM_AND_LIVE';
     proto.AMCONFIG_LIVE_WITH_AMD = 'LIVE_WITH_AMD';
