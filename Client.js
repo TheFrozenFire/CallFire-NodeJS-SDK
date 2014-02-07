@@ -99,7 +99,7 @@ with({proto: Client.prototype}) {
         });
         
             
-        if(parameters !== undefined && parameters.length > 0) {
+        if(parameters !== undefined && Object.keys(parameters).length > 0) {
             request.write(querystring.stringify(parameters));
         }
         
@@ -139,7 +139,7 @@ with({proto: Client.prototype}) {
         });
         
             
-        if(parameters !== undefined && parameters.length > 0) {
+        if(parameters !== undefined && Object.keys(parameters).length > 0) {
             request.write(querystring.stringify(parameters));
         }
         
@@ -179,7 +179,7 @@ with({proto: Client.prototype}) {
         });
         
             
-        if(parameters !== undefined && parameters.length > 0) {
+        if(parameters !== undefined && Object.keys(parameters).length > 0) {
             request.write(querystring.stringify(parameters));
         }
         
