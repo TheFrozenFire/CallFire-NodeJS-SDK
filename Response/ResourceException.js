@@ -8,6 +8,7 @@ var ResourceException = function(document) {
 util.inherits(ResourceException, Response);
 module.exports = ResourceException;
 with({proto: ResourceException.prototype}) {
+    proto.type = 'ResourceException';
     proto.httpStatus = null;
     proto.message = null;
 

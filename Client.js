@@ -18,7 +18,11 @@ with({proto: Client.prototype}) {
     proto.password = null;
     
     proto.get_uri = function(path) {
-        return this.base_path + util.format.apply(util, [path].concat(Array.prototype.slice.call(arguments, 1)));
+        if(arguments.length > 1) {
+          return this.base_path + util.format.apply(util, [path].concat(Array.prototype.slice.call(arguments, 1)));
+        } else {
+          return this.base_path + path;
+        }
     }
     
     proto.basic_auth_string = function(username, password) {
@@ -30,8 +34,8 @@ with({proto: Client.prototype}) {
         var response_data = '';
         var options;
         var handler;
-    
-        if(parameters !== undefined && parameters.length > 0) {
+        
+        if(parameters != undefined && Object.keys(parameters).length > 0) {
             uri = uri + '?' + querystring.stringify(parameters);
         }
         

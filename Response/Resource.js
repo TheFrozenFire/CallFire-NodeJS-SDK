@@ -8,6 +8,7 @@ var Resource = function(document) {
 util.inherits(Resource, Response);
 module.exports = Resource;
 with({proto: Resource.prototype}) {
+    proto.type = 'Resource';
     proto.resource = null;
 
     proto.load_xml = function(root) {

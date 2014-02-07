@@ -8,6 +8,7 @@ var ResourceList = function(document) {
 util.inherits(ResourceList, Response);
 module.exports = ResourceList;
 with({proto: ResourceList.prototype}) {
+    proto.type = 'ResourceList';
     proto.totalResults = 0;
     proto.resources = [];
 

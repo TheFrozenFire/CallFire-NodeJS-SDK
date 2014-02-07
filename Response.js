@@ -7,6 +7,7 @@ var Response = function(document) {
 }
 module.exports = Response;
 with({proto: Response.prototype}) {
+    proto.type = null;
     proto.queryMap = require('./querymap.json');
 
     proto.load_xml = function(document) {
