@@ -15,6 +15,7 @@ with({proto: ResourceList.prototype}) {
     proto.load_xml = function(root) {
         var resource_list = root.find('*', callfire.namespaces);
         var total_results_node = root.get('@totalResults', callfire.namespaces);
+        this.resources = [];
         
         if(total_results_node !== undefined) {
             this.totalResults = total_results_node.value();
