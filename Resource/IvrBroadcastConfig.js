@@ -1,16 +1,20 @@
 var util = require('util');
 var BroadcastConfig = require('./BroadcastConfig');
 
-var IvrBroadcastConfig = function() {
-    BroadcastConfig.apply(this, arguments);
-}
-util.inherits(IvrBroadcastConfig, BroadcastConfig);
-module.exports = IvrBroadcastConfig;
-with({proto: IvrBroadcastConfig.prototype}) {
+(function() {
+    'use strict';
+    
+    var IvrBroadcastConfig = function() {
+        BroadcastConfig.apply(this, arguments);
+    };
+    module.exports = IvrBroadcastConfig;
+    util.inherits(IvrBroadcastConfig, BroadcastConfig);
+    var proto = IvrBroadcastConfig.prototype;
+    
     proto.types = [
         'IvrBroadcastConfig',
         'BroadcastConfig'
-    ]
+    ];
 
     proto.dialplanXml = null;
     proto.id = null;
@@ -18,4 +22,4 @@ with({proto: IvrBroadcastConfig.prototype}) {
     proto.fromNumber = null;
     proto.localTimeZoneRestriction = null;
     proto.retryConfig = null;
-}
+}) ();

@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var NumberOrder = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(NumberOrder, Resource);
-module.exports = NumberOrder;
-with({proto: NumberOrder.prototype}) {
+(function() {
+    'use strict';
+    
+    var NumberOrder = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = NumberOrder;
+    util.inherits(NumberOrder, Resource);
+    var proto = NumberOrder.prototype;
+    
     proto.types = [
         'NumberOrder'
-    ]
+    ];
 
     proto.id = null;
     proto.status = null;
@@ -18,4 +22,4 @@ with({proto: NumberOrder.prototype}) {
     proto.localNumbers = null;
     proto.tollFreeNumbers = null;
     proto.keywords = null;
-}
+}) ();

@@ -1,7 +1,12 @@
-var CreateNumberOrder = function() {
-}
-module.exports = CreateNumberOrder;
-with({proto: CreateNumberOrder.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateNumberOrder = function() {
+        
+    };
+    module.exports = CreateNumberOrder;
+    var proto = CreateNumberOrder.prototype;
+    
     proto.numbers = null;
 
     proto.keywords = null;
@@ -30,4 +35,4 @@ with({proto: CreateNumberOrder.prototype}) {
 
     proto.tollFreeCount = null;
 
-}
+}) ();

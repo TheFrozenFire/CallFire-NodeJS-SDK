@@ -1,7 +1,12 @@
-var SendCall = function() {
-}
-module.exports = SendCall;
-with({proto: SendCall.prototype}) {
+(function() {
+    'use strict';
+    
+    var SendCall = function() {
+        
+    };
+    module.exports = SendCall;
+    var proto = SendCall.prototype;
+    
     proto.requestId = null;
 
     proto.type = null;
@@ -52,4 +57,4 @@ with({proto: SendCall.prototype}) {
 
     proto.dialplanXml = null;
 
-}
+}) ();

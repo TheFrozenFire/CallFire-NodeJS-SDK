@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Region = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Region, Resource);
-module.exports = Region;
-with({proto: Region.prototype}) {
+(function() {
+    'use strict';
+    
+    var Region = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Region;
+    util.inherits(Region, Resource);
+    var proto = Region.prototype;
+    
     proto.types = [
         'Region'
-    ]
+    ];
 
     proto.prefix = null;
     proto.city = null;
@@ -21,4 +25,4 @@ with({proto: Region.prototype}) {
     proto.latitude = null;
     proto.longitude = null;
     proto.timeZone = null;
-}
+}) ();

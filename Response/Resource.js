@@ -2,12 +2,15 @@ var Response = require('../Response'),
     util = require('util'),
     callfire = require('../callfire');
 
-var Resource = function(document) {
-    Response.call(this, document);
-}
-util.inherits(Resource, Response);
-module.exports = Resource;
-with({proto: Resource.prototype}) {
+(function() {
+    'use strict';
+    
+    var Resource = function(document) {
+        Response.call(this, document);
+    };
+    module.exports = Resource;
+    var proto = Resource.prototype;
+    
     proto.type = 'Resource';
     proto.resource = null;
 
@@ -22,5 +25,5 @@ with({proto: Resource.prototype}) {
                 this.resource = resource;
             }
         }
-    }
-}
+    };
+}) ();

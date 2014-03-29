@@ -1,14 +1,18 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Fulfilled = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Fulfilled, Resource);
-module.exports = Fulfilled;
-with({proto: Fulfilled.prototype}) {
+(function() {
+    'use strict';
+    
+    var Fulfilled = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Fulfilled;
+    util.inherits(Fulfilled, Resource);
+    var proto = Fulfilled.prototype;
+    
     proto.types = [
         'Fulfilled'
-    ]
+    ];
 
-}
+}) ();

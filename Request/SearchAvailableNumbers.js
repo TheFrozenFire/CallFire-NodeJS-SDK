@@ -1,7 +1,12 @@
-var SearchAvailableNumbers = function() {
-}
-module.exports = SearchAvailableNumbers;
-with({proto: SearchAvailableNumbers.prototype}) {
+(function() {
+    'use strict';
+    
+    var SearchAvailableNumbers = function() {
+        
+    };
+    module.exports = SearchAvailableNumbers;
+    var proto = SearchAvailableNumbers.prototype;
+    
     proto.prefix = null;
 
     proto.city = null;
@@ -26,4 +31,4 @@ with({proto: SearchAvailableNumbers.prototype}) {
 
     proto.count = null;
 
-}
+}) ();

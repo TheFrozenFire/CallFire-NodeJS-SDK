@@ -1,16 +1,20 @@
 var util = require('util');
 var ActionRecord = require('./ActionRecord');
 
-var TextRecord = function() {
-    ActionRecord.apply(this, arguments);
-}
-util.inherits(TextRecord, ActionRecord);
-module.exports = TextRecord;
-with({proto: TextRecord.prototype}) {
+(function() {
+    'use strict';
+    
+    var TextRecord = function() {
+        ActionRecord.apply(this, arguments);
+    };
+    module.exports = TextRecord;
+    util.inherits(TextRecord, ActionRecord);
+    var proto = TextRecord.prototype;
+    
     proto.types = [
         'TextRecord',
         'ActionRecord'
-    ]
+    ];
 
     proto.message = null;
     proto.id = null;
@@ -18,4 +22,4 @@ with({proto: TextRecord.prototype}) {
     proto.finishTime = null;
     proto.billedAmount = null;
     proto.questionResponses = [];
-}
+}) ();

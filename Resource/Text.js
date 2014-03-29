@@ -1,16 +1,20 @@
 var util = require('util');
 var Action = require('./Action');
 
-var Text = function() {
-    Action.apply(this, arguments);
-}
-util.inherits(Text, Action);
-module.exports = Text;
-with({proto: Text.prototype}) {
+(function() {
+    'use strict';
+    
+    var Text = function() {
+        Action.apply(this, arguments);
+    };
+    module.exports = Text;
+    util.inherits(Text, Action);
+    var proto = Text.prototype;
+    
     proto.types = [
         'Text',
         'Action'
-    ]
+    ];
 
     proto.message = null;
     proto.textRecords = [];
@@ -25,5 +29,4 @@ with({proto: Text.prototype}) {
     proto.created = null;
     proto.modified = null;
     proto.finalResult = null;
-    proto.labels = [];
-}
+}) ();

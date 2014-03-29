@@ -1,14 +1,18 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var ToNumber = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(ToNumber, Resource);
-module.exports = ToNumber;
-with({proto: ToNumber.prototype}) {
+(function() {
+    'use strict';
+    
+    var ToNumber = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = ToNumber;
+    util.inherits(ToNumber, Resource);
+    var proto = ToNumber.prototype;
+    
     proto.types = [
         'ToNumber'
-    ]
+    ];
 
-}
+}) ();

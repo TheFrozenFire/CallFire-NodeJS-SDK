@@ -1,16 +1,20 @@
 var util = require('util');
 var Action = require('./Action');
 
-var Call = function() {
-    Action.apply(this, arguments);
-}
-util.inherits(Call, Action);
-module.exports = Call;
-with({proto: Call.prototype}) {
+(function() {
+    'use strict';
+    
+    var Call = function() {
+        Action.apply(this, arguments);
+    };
+    module.exports = Call;
+    util.inherits(Call, Action);
+    var proto = Call.prototype;
+    
     proto.types = [
         'Call',
         'Action'
-    ]
+    ];
 
     proto.callRecords = [];
     proto.id = null;
@@ -24,5 +28,4 @@ with({proto: Call.prototype}) {
     proto.created = null;
     proto.modified = null;
     proto.finalResult = null;
-    proto.labels = [];
-}
+}) ();

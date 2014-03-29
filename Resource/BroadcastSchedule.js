@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var BroadcastSchedule = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(BroadcastSchedule, Resource);
-module.exports = BroadcastSchedule;
-with({proto: BroadcastSchedule.prototype}) {
+(function() {
+    'use strict';
+    
+    var BroadcastSchedule = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = BroadcastSchedule;
+    util.inherits(BroadcastSchedule, Resource);
+    var proto = BroadcastSchedule.prototype;
+    
     proto.types = [
         'BroadcastSchedule'
-    ]
+    ];
 
     proto.id = null;
     proto.startTimeOfDay = null;
@@ -18,4 +22,4 @@ with({proto: BroadcastSchedule.prototype}) {
     proto.beginDate = null;
     proto.endDate = null;
     proto.daysOfWeek = null;
-}
+}) ();

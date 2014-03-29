@@ -1,14 +1,18 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var InboundCallConfiguration = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(InboundCallConfiguration, Resource);
-module.exports = InboundCallConfiguration;
-with({proto: InboundCallConfiguration.prototype}) {
+(function() {
+    'use strict';
+    
+    var InboundCallConfiguration = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = InboundCallConfiguration;
+    util.inherits(InboundCallConfiguration, Resource);
+    var proto = InboundCallConfiguration.prototype;
+    
     proto.types = [
         'InboundCallConfiguration'
-    ]
+    ];
 
-}
+}) ();

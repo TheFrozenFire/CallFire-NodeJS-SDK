@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Subscription = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Subscription, Resource);
-module.exports = Subscription;
-with({proto: Subscription.prototype}) {
+(function() {
+    'use strict';
+    
+    var Subscription = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Subscription;
+    util.inherits(Subscription, Resource);
+    var proto = Subscription.prototype;
+    
     proto.types = [
         'Subscription'
-    ]
+    ];
 
     proto.id = null;
     proto.enabled = null;
@@ -17,4 +21,4 @@ with({proto: Subscription.prototype}) {
     proto.notificationFormat = null;
     proto.triggerEvent = null;
     proto.subscriptionFilter = null;
-}
+}) ();

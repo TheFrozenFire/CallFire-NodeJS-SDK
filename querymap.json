@@ -1,18 +1,17 @@
 {
+    "TextToSpeech": {
+
+    },
     "InboundConfig": {
         "id": "@id"
     },
     "RetryResults": {
 
     },
-    "RetryPhoneTypes": {
-
-    },
     "RetryConfig": {
         "MaxAttempts": "_:MaxAttempts",
         "MinutesBetweenAttempts": "_:MinutesBetweenAttempts",
-        "#RetryResults": "_:RetryResults",
-        "#RetryPhoneTypes": "_:RetryPhoneTypes"
+        "#RetryResults": "_:RetryResults"
     },
     "BroadcastConfig": {
         "id": "@id",
@@ -46,8 +45,7 @@
         "Inbound": "_:Inbound",
         "Created": "_:Created",
         "Modified": "_:Modified",
-        "FinalResult": "_:FinalResult",
-        "#@Labels": "_:Label"
+        "FinalResult": "_:FinalResult"
     },
     "Fulfilled": {
 
@@ -69,12 +67,8 @@
     },
     "VoiceBroadcastConfig": {
         "AnsweringMachineConfig": "_:AnsweringMachineConfig",
-        "LiveSoundTextVoice": "_:LiveSoundTextVoice",
-        "MachineSoundTextVoice": "_:MachineSoundTextVoice",
-        "TransferSoundTextVoice": "_:TransferSoundTextVoice",
         "TransferDigit": "_:TransferDigit",
         "TransferNumber": "_:TransferNumber",
-        "DncSoundTextVoice": "_:DncSoundTextVoice",
         "DncDigit": "_:DncDigit",
         "MaxActiveTransfers": "_:MaxActiveTransfers",
         "LiveSoundText": "_:LiveSoundText",
@@ -173,8 +167,7 @@
         "id": "@id",
         "Name": "_:Name",
         "Created": "_:Created",
-        "LengthInSeconds": "_:LengthInSeconds",
-        "Link": "_:Link"
+        "LengthInSeconds": "_:LengthInSeconds"
     },
     "TextRecord": {
         "Message": "_:Message"
@@ -212,9 +205,7 @@
         "zipcode": "@zipcode",
         "homePhone": "@homePhone",
         "workPhone": "@workPhone",
-        "mobilePhone": "@mobilePhone",
-        "externalId": "@externalId",
-        "externalSystem": "@externalSystem"
+        "mobilePhone": "@mobilePhone"
     },
     "ContactHistory": {
 

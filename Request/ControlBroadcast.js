@@ -1,7 +1,12 @@
-var ControlBroadcast = function() {
-}
-module.exports = ControlBroadcast;
-with({proto: ControlBroadcast.prototype}) {
+(function() {
+    'use strict';
+    
+    var ControlBroadcast = function() {
+        
+    };
+    module.exports = ControlBroadcast;
+    var proto = ControlBroadcast.prototype;
+    
     proto.id = null;
 
     proto.requestId = null;
@@ -10,4 +15,4 @@ with({proto: ControlBroadcast.prototype}) {
 
     proto.maxActive = null;
 
-}
+}) ();

@@ -1,7 +1,12 @@
-var ConfigureNumber = function() {
-}
-module.exports = ConfigureNumber;
-with({proto: ConfigureNumber.prototype}) {
+(function() {
+    'use strict';
+    
+    var ConfigureNumber = function() {
+        
+    };
+    module.exports = ConfigureNumber;
+    var proto = ConfigureNumber.prototype;
+    
     proto.number = null;
 
     proto.callFeature = null;
@@ -22,4 +27,4 @@ with({proto: ConfigureNumber.prototype}) {
 
     proto.dialplanXml = null;
 
-}
+}) ();

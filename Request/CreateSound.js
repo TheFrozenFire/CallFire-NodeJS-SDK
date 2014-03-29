@@ -1,7 +1,12 @@
-var CreateSound = function() {
-}
-module.exports = CreateSound;
-with({proto: CreateSound.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateSound = function() {
+        
+    };
+    module.exports = CreateSound;
+    var proto = CreateSound.prototype;
+    
     proto.name = null;
 
     proto.data = null;
@@ -10,4 +15,4 @@ with({proto: CreateSound.prototype}) {
 
     proto.soundText = null;
 
-}
+}) ();

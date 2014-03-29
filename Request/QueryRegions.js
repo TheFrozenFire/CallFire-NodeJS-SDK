@@ -1,7 +1,12 @@
-var QueryRegions = function() {
-}
-module.exports = QueryRegions;
-with({proto: QueryRegions.prototype}) {
+(function() {
+    'use strict';
+    
+    var QueryRegions = function() {
+        
+    };
+    module.exports = QueryRegions;
+    var proto = QueryRegions.prototype;
+    
     proto.maxResults = null;
 
     proto.firstResult = null;
@@ -26,4 +31,4 @@ with({proto: QueryRegions.prototype}) {
 
     proto.timeZone = null;
 
-}
+}) ();

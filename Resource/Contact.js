@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Contact = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Contact, Resource);
-module.exports = Contact;
-with({proto: Contact.prototype}) {
+(function() {
+    'use strict';
+    
+    var Contact = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Contact;
+    util.inherits(Contact, Resource);
+    var proto = Contact.prototype;
+    
     proto.types = [
         'Contact'
-    ]
+    ];
 
     proto.id = null;
     proto.firstName = null;
@@ -18,7 +22,5 @@ with({proto: Contact.prototype}) {
     proto.homePhone = null;
     proto.workPhone = null;
     proto.mobilePhone = null;
-    proto.externalId = null;
-    proto.externalSystem = null;
     proto.attributes = [];
-}
+}) ();

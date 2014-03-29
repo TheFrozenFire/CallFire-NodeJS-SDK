@@ -1,7 +1,12 @@
-var QueryContacts = function() {
-}
-module.exports = QueryContacts;
-with({proto: QueryContacts.prototype}) {
+(function() {
+    'use strict';
+    
+    var QueryContacts = function() {
+        
+    };
+    module.exports = QueryContacts;
+    var proto = QueryContacts.prototype;
+    
     proto.maxResults = null;
 
     proto.firstResult = null;
@@ -12,4 +17,4 @@ with({proto: QueryContacts.prototype}) {
 
     proto.string = null;
 
-}
+}) ();

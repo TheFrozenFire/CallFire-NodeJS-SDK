@@ -1,9 +1,14 @@
-var UnlabelNumber = function() {
-}
-module.exports = UnlabelNumber;
-with({proto: UnlabelNumber.prototype}) {
+(function() {
+    'use strict';
+    
+    var UnlabelNumber = function() {
+        
+    };
+    module.exports = UnlabelNumber;
+    var proto = UnlabelNumber.prototype;
+    
     proto.number = null;
 
     proto.labelName = null;
 
-}
+}) ();

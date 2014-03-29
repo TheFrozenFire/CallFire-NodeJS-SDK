@@ -1,7 +1,12 @@
-var QueryNumbers = function() {
-}
-module.exports = QueryNumbers;
-with({proto: QueryNumbers.prototype}) {
+(function() {
+    'use strict';
+    
+    var QueryNumbers = function() {
+        
+    };
+    module.exports = QueryNumbers;
+    var proto = QueryNumbers.prototype;
+    
     proto.maxResults = null;
 
     proto.firstResult = null;
@@ -28,4 +33,4 @@ with({proto: QueryNumbers.prototype}) {
 
     proto.labelName = null;
 
-}
+}) ();

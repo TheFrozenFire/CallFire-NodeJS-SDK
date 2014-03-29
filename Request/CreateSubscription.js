@@ -1,7 +1,12 @@
-var CreateSubscription = function() {
-}
-module.exports = CreateSubscription;
-with({proto: CreateSubscription.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateSubscription = function() {
+        
+    };
+    module.exports = CreateSubscription;
+    var proto = CreateSubscription.prototype;
+    
     proto.requestId = null;
 
     proto.enabled = null;
@@ -22,4 +27,4 @@ with({proto: CreateSubscription.prototype}) {
 
     proto.inbound = null;
 
-}
+}) ();

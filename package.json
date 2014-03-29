@@ -1,7 +1,7 @@
 {
   "name": "callfire",
   "main": "./callfire.js",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "dependencies": {
     "libxmljs": ">=0.8.1"
   },

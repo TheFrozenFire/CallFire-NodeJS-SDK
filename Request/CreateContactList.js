@@ -1,7 +1,12 @@
-var CreateContactList = function() {
-}
-module.exports = CreateContactList;
-with({proto: CreateContactList.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateContactList = function() {
+        
+    };
+    module.exports = CreateContactList;
+    var proto = CreateContactList.prototype;
+    
     proto.requestId = null;
 
     proto.name = null;
@@ -10,4 +15,4 @@ with({proto: CreateContactList.prototype}) {
 
     proto.file = null;
 
-}
+}) ();

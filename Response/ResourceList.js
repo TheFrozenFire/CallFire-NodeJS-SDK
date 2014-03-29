@@ -2,15 +2,20 @@ var Response = require('../Response'),
     util = require('util'),
     callfire = require('../callfire');
 
-var ResourceList = function(document) {
-    Response.call(this, document);
-}
-util.inherits(ResourceList, Response);
-module.exports = ResourceList;
-with({proto: ResourceList.prototype}) {
+(function() {
+    'use strict';
+    
+    var ResourceList = function(document) {
+        Response.call(this, document);
+        
+        this.resources = [];
+    };
+    module.exports = ResourceList;
+    var proto = ResourceList.prototype;
+    
     proto.type = 'ResourceList';
     proto.totalResults = 0;
-    proto.resources = [];
+    proto.resources = undefined;
 
     proto.load_xml = function(root) {
         var resource_list = root.find('*', callfire.namespaces);
@@ -30,5 +35,5 @@ with({proto: ResourceList.prototype}) {
                 }
             }
         }
-    }
-}
+    };
+}) ();

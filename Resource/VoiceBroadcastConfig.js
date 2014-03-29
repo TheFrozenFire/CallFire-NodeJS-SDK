@@ -1,24 +1,24 @@
 var util = require('util');
 var BroadcastConfig = require('./BroadcastConfig');
 
-var VoiceBroadcastConfig = function() {
-    BroadcastConfig.apply(this, arguments);
-}
-util.inherits(VoiceBroadcastConfig, BroadcastConfig);
-module.exports = VoiceBroadcastConfig;
-with({proto: VoiceBroadcastConfig.prototype}) {
+(function() {
+    'use strict';
+    
+    var VoiceBroadcastConfig = function() {
+        BroadcastConfig.apply(this, arguments);
+    };
+    module.exports = VoiceBroadcastConfig;
+    util.inherits(VoiceBroadcastConfig, BroadcastConfig);
+    var proto = VoiceBroadcastConfig.prototype;
+    
     proto.types = [
         'VoiceBroadcastConfig',
         'BroadcastConfig'
-    ]
+    ];
 
     proto.answeringMachineConfig = null;
-    proto.liveSoundTextVoice = null;
-    proto.machineSoundTextVoice = null;
-    proto.transferSoundTextVoice = null;
     proto.transferDigit = null;
     proto.transferNumber = null;
-    proto.dncSoundTextVoice = null;
     proto.dncDigit = null;
     proto.maxActiveTransfers = null;
     proto.liveSoundText = null;
@@ -34,4 +34,4 @@ with({proto: VoiceBroadcastConfig.prototype}) {
     proto.fromNumber = null;
     proto.localTimeZoneRestriction = null;
     proto.retryConfig = null;
-}
+}) ();

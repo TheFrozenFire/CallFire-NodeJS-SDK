@@ -1,10 +1,13 @@
 var util = require('util');
 
-var Resource = function() {
+(function() {
+    'use strict';
     
-}
-module.exports = Resource;
-with({proto: Resource.prototype}) {
-    proto.types = [
-    ]
-}
+    var Resource = function() {
+        
+    };
+    module.exports = Resource;
+    var proto = Resource.prototype;
+    
+    proto.types = [];
+}) ();

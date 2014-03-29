@@ -1,7 +1,12 @@
-var DeleteLabel = function() {
-}
-module.exports = DeleteLabel;
-with({proto: DeleteLabel.prototype}) {
+(function() {
+    'use strict';
+    
+    var DeleteLabel = function() {
+        
+    };
+    module.exports = DeleteLabel;
+    var proto = DeleteLabel.prototype;
+    
     proto.labelName = null;
 
-}
+}) ();

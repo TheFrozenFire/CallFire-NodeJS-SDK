@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Action = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Action, Resource);
-module.exports = Action;
-with({proto: Action.prototype}) {
+(function() {
+    'use strict';
+    
+    var Action = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Action;
+    util.inherits(Action, Resource);
+    var proto = Action.prototype;
+    
     proto.types = [
         'Action'
-    ]
+    ];
 
     proto.id = null;
     proto.fromNumber = null;
@@ -22,5 +26,4 @@ with({proto: Action.prototype}) {
     proto.created = null;
     proto.modified = null;
     proto.finalResult = null;
-    proto.labels = [];
-}
+}) ();

@@ -1,7 +1,12 @@
-var QueryBroadcasts = function() {
-}
-module.exports = QueryBroadcasts;
-with({proto: QueryBroadcasts.prototype}) {
+(function() {
+    'use strict';
+    
+    var QueryBroadcasts = function() {
+        
+    };
+    module.exports = QueryBroadcasts;
+    var proto = QueryBroadcasts.prototype;
+    
     proto.maxResults = null;
 
     proto.firstResult = null;
@@ -12,4 +17,4 @@ with({proto: QueryBroadcasts.prototype}) {
 
     proto.labelName = null;
 
-}
+}) ();

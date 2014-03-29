@@ -1,7 +1,12 @@
-var QueryTexts = function() {
-}
-module.exports = QueryTexts;
-with({proto: QueryTexts.prototype}) {
+(function() {
+    'use strict';
+    
+    var QueryTexts = function() {
+        
+    };
+    module.exports = QueryTexts;
+    var proto = QueryTexts.prototype;
+    
     proto.maxResults = null;
 
     proto.firstResult = null;
@@ -26,4 +31,4 @@ with({proto: QueryTexts.prototype}) {
 
     proto.labelName = null;
 
-}
+}) ();

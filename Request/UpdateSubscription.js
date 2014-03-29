@@ -1,7 +1,12 @@
-var UpdateSubscription = function() {
-}
-module.exports = UpdateSubscription;
-with({proto: UpdateSubscription.prototype}) {
+(function() {
+    'use strict';
+    
+    var UpdateSubscription = function() {
+        
+    };
+    module.exports = UpdateSubscription;
+    var proto = UpdateSubscription.prototype;
+    
     proto.requestId = null;
 
     proto.enabled = null;
@@ -22,4 +27,4 @@ with({proto: UpdateSubscription.prototype}) {
 
     proto.inbound = null;
 
-}
+}) ();

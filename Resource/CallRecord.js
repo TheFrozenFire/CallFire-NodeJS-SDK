@@ -1,16 +1,20 @@
 var util = require('util');
 var ActionRecord = require('./ActionRecord');
 
-var CallRecord = function() {
-    ActionRecord.apply(this, arguments);
-}
-util.inherits(CallRecord, ActionRecord);
-module.exports = CallRecord;
-with({proto: CallRecord.prototype}) {
+(function() {
+    'use strict';
+    
+    var CallRecord = function() {
+        ActionRecord.apply(this, arguments);
+    };
+    module.exports = CallRecord;
+    util.inherits(CallRecord, ActionRecord);
+    var proto = CallRecord.prototype;
+    
     proto.types = [
         'CallRecord',
         'ActionRecord'
-    ]
+    ];
 
     proto.originateTime = null;
     proto.answerTime = null;
@@ -21,4 +25,4 @@ with({proto: CallRecord.prototype}) {
     proto.finishTime = null;
     proto.billedAmount = null;
     proto.questionResponses = [];
-}
+}) ();

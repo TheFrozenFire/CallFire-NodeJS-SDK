@@ -1,7 +1,12 @@
-var CreateBroadcast = function() {
-}
-module.exports = CreateBroadcast;
-with({proto: CreateBroadcast.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateBroadcast = function() {
+        
+    };
+    module.exports = CreateBroadcast;
+    var proto = CreateBroadcast.prototype;
+    
     proto.requestId = null;
 
     proto.name = null;
@@ -52,4 +57,4 @@ with({proto: CreateBroadcast.prototype}) {
 
     proto.dialplanXml = null;
 
-}
+}) ();

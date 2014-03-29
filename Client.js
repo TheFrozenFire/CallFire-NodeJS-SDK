@@ -6,12 +6,16 @@ var http = require('http'),
     callfire = require('callfire'),
     libxmljs = require('libxmljs');
 
-var Client = function(username, password) {
-    this.username = username;
-    this.password = password;
-}
-module.exports = Client;
-with({proto: Client.prototype}) {
+(function() {
+    'use strict';
+    
+    var Client = function(username, password) {
+        this.username = username;
+        this.password = password;
+    };
+    module.exports = Client;
+    var proto = Client.prototype;
+    
     proto.base_path = 'https://www.callfire.com/api/1.1/rest';
     
     proto.username = null;
@@ -23,11 +27,11 @@ with({proto: Client.prototype}) {
         } else {
           return this.base_path + path;
         }
-    }
+    };
     
     proto.basic_auth_string = function(username, password) {
         return new Buffer(username + ':' + password).toString('base64');
-    }
+    };
     
     proto.get = function(uri, parameters, callback) {
         var request;
@@ -35,7 +39,7 @@ with({proto: Client.prototype}) {
         var options;
         var handler;
         
-        if(parameters != undefined && Object.keys(parameters).length > 0) {
+        if(parameters !== undefined && Object.keys(parameters).length > 0) {
             uri = uri + '?' + querystring.stringify(parameters);
         }
         
@@ -43,7 +47,7 @@ with({proto: Client.prototype}) {
         options.method = 'GET';
         options.headers = {
             'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
-        }
+        };
         
         handler = (options.protocol == 'https:') ? https : http;
     
@@ -58,7 +62,7 @@ with({proto: Client.prototype}) {
         });
         
         request.on('error', function(error) {
-            var exception = new callfire.response.ResourceException;
+            var exception = new callfire.response.ResourceException();
             exception.message = error.message;
             callback(exception);
         });
@@ -66,7 +70,7 @@ with({proto: Client.prototype}) {
         request.end();
         
         return request;
-    }
+    };
     
     proto.post = function(uri, parameters, callback) {
         var request;
@@ -78,7 +82,7 @@ with({proto: Client.prototype}) {
         options.method = 'POST';
         options.headers = {
             'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
-        }
+        };
         
         handler = (options.protocol == 'https:') ? https : http;
     
@@ -93,7 +97,7 @@ with({proto: Client.prototype}) {
         });
         
         request.on('error', function(error) {
-            var exception = new callfire.response.ResourceException;
+            var exception = new callfire.response.ResourceException();
             exception.message = error.message;
             callback(exception);
         });
@@ -106,7 +110,7 @@ with({proto: Client.prototype}) {
         request.end();
         
         return request;
-    }
+    };
     
     proto.put = function(uri, parameters, callback) {
         var request;
@@ -118,7 +122,7 @@ with({proto: Client.prototype}) {
         options.method = 'PUT';
         options.headers = {
             'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
-        }
+        };
         
         handler = (options.protocol == 'https:') ? https : http;
     
@@ -133,7 +137,7 @@ with({proto: Client.prototype}) {
         });
         
         request.on('error', function(error) {
-            var exception = new callfire.response.ResourceException;
+            var exception = new callfire.response.ResourceException();
             exception.message = error.message;
             callback(exception);
         });
@@ -146,7 +150,7 @@ with({proto: Client.prototype}) {
         request.end();
         
         return request;
-    }
+    };
     
     proto.delete = function(uri, parameters, callback) {
         var request;
@@ -158,7 +162,7 @@ with({proto: Client.prototype}) {
         options.method = 'DELETE';
         options.headers = {
             'Authorization': 'Basic ' + this.basic_auth_string(this.username, this.password)
-        }
+        };
         
         handler = (options.protocol == 'https:') ? https : http;
     
@@ -173,7 +177,7 @@ with({proto: Client.prototype}) {
         });
         
         request.on('error', function(error) {
-            var exception = new callfire.response.ResourceException;
+            var exception = new callfire.response.ResourceException();
             exception.message = error.message;
             callback(exception);
         });
@@ -186,7 +190,7 @@ with({proto: Client.prototype}) {
         request.end();
         
         return request;
-    }
+    };
     
     proto.response = function(response) {
         var document = libxmljs.parseXml(response);
@@ -216,5 +220,5 @@ with({proto: Client.prototype}) {
         }
         
         return response_object;
-    }
-}
+    };
+}) ();

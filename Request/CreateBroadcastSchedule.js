@@ -1,7 +1,12 @@
-var CreateBroadcastSchedule = function() {
-}
-module.exports = CreateBroadcastSchedule;
-with({proto: CreateBroadcastSchedule.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateBroadcastSchedule = function() {
+        
+    };
+    module.exports = CreateBroadcastSchedule;
+    var proto = CreateBroadcastSchedule.prototype;
+    
     proto.requestId = null;
 
     proto.broadcastId = null;
@@ -18,4 +23,4 @@ with({proto: CreateBroadcastSchedule.prototype}) {
 
     proto.daysOfWeek = null;
 
-}
+}) ();

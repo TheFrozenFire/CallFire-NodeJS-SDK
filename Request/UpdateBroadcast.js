@@ -1,7 +1,12 @@
-var UpdateBroadcast = function() {
-}
-module.exports = UpdateBroadcast;
-with({proto: UpdateBroadcast.prototype}) {
+(function() {
+    'use strict';
+    
+    var UpdateBroadcast = function() {
+        
+    };
+    module.exports = UpdateBroadcast;
+    var proto = UpdateBroadcast.prototype;
+    
     proto.requestId = null;
 
     proto.name = null;
@@ -52,4 +57,4 @@ with({proto: UpdateBroadcast.prototype}) {
 
     proto.dialplanXml = null;
 
-}
+}) ();

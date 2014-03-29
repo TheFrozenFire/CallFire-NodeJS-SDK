@@ -2,12 +2,15 @@ var Response = require('../Response'),
     util = require('util'),
     callfire = require('../callfire');
 
-var ResourceException = function(document) {
-    Response.call(this, document);
-}
-util.inherits(ResourceException, Response);
-module.exports = ResourceException;
-with({proto: ResourceException.prototype}) {
+(function() {
+    'use strict';
+    
+    var ResourceException = function(document) {
+        Response.call(this, document);
+    };
+    module.exports = ResourceException;
+    var proto = ResourceException.prototype;
+    
     proto.type = 'ResourceException';
     proto.httpStatus = null;
     proto.message = null;
@@ -23,5 +26,5 @@ with({proto: ResourceException.prototype}) {
         if(message !== undefined) {
             this.message = message.text();
         }
-    }
-}
+    };
+}) ();

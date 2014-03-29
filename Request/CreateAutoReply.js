@@ -1,7 +1,12 @@
-var CreateAutoReply = function() {
-}
-module.exports = CreateAutoReply;
-with({proto: CreateAutoReply.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateAutoReply = function() {
+        
+    };
+    module.exports = CreateAutoReply;
+    var proto = CreateAutoReply.prototype;
+    
     proto.requestId = null;
 
     proto.number = null;
@@ -12,4 +17,4 @@ with({proto: CreateAutoReply.prototype}) {
 
     proto.message = null;
 
-}
+}) ();

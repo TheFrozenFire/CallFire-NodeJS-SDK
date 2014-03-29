@@ -1,8 +1,12 @@
-var callfire = function(username, password, type) {
-    return callfire.client(username, password, type);
-}
-module.exports = callfire;
-with({proto: callfire}) { // singleton
+(function() {
+    'use strict';
+    
+    var callfire = function(username, password, type) {
+        return callfire.client(username, password, type);
+    };
+    module.exports = callfire;
+    var proto = callfire; // Singleton facade
+    
     proto.verify_credentials = function(username, password, callback) {
         var numberClient = callfire(username, password, 'Number');
         numberClient.QueryNumbers({ MaxResults: 1 }, function(resource_list, exception) {
@@ -14,38 +18,38 @@ with({proto: callfire}) { // singleton
         }, function() {
             callback();
         });
-    }
+    };
     
     proto.is_phone_number = function(number) {
-        if(isNaN(parseFloat(number)) || !isFinite(number) || (number % 1 != 0)) {
+        if(isNaN(parseFloat(number)) || !isFinite(number) || (number % 1 !== 0)) {
             return false;
         }
         
         return true;
-    }
+    };
     
     proto.client = function(username, password, type) {
         return new this.client[type](username, password);
-    }
+    };
     
     proto.response = function(type, node) {
         return new this.response[type](node);
-    }
+    };
     
     proto.request = function(type) {
-        return new this.request[type];
-    }
+        return new this.request[type]();
+    };
     
     proto.resource = function(type) {
-        return new this.resource[type];
-    }
+        return new this.resource[type]();
+    };
     
     proto.namespaces = {
         _: 'http://api.callfire.com/data',
         r: 'http://api.callfire.com/resource'
-    }
+    };
     
-    proto.client.Broadcast = require('./Client/Broadcast');
+        proto.client.Broadcast = require('./Client/Broadcast');
     proto.client.Call = require('./Client/Call');
     proto.client.Contact = require('./Client/Contact');
     proto.client.Label = require('./Client/Label');
@@ -87,7 +91,6 @@ with({proto: callfire}) { // singleton
     proto.resource.Region = require('./Resource/Region');
     proto.resource.ResultStat = require('./Resource/ResultStat');
     proto.resource.RetryConfig = require('./Resource/RetryConfig');
-    proto.resource.RetryPhoneTypes = require('./Resource/RetryPhoneTypes');
     proto.resource.RetryResults = require('./Resource/RetryResults');
     proto.resource.SoundMeta = require('./Resource/SoundMeta');
     proto.resource.Subscription = require('./Resource/Subscription');
@@ -144,12 +147,6 @@ with({proto: callfire}) { // singleton
     proto.request.UnlabelNumber = require('./Request/UnlabelNumber');
     proto.request.UpdateBroadcast = require('./Request/UpdateBroadcast');
     proto.request.UpdateSubscription = require('./Request/UpdateSubscription');
-    
-    proto.response.Response = require('./Response');
-    proto.response.ResourceList = require('./Response/ResourceList');
-    proto.response.Resource = require('./Response/Resource');
-    proto.response.ResourceReference = require('./Response/ResourceReference');
-    proto.response.ResourceException = require('./Response/ResourceException');
     
     proto.AMCONFIG_AM_ONLY = 'AM_ONLY';
     proto.AMCONFIG_AM_AND_LIVE = 'AM_AND_LIVE';
@@ -212,4 +209,4 @@ with({proto: callfire}) { // singleton
     proto.STRATEGY_SEND_MULTIPLE = 'SEND_MULTIPLE';
     proto.STRATEGY_DO_NOT_SEND = 'DO_NOT_SEND';
     proto.STRATEGY_TRIM = 'TRIM';
-}
+}) ();

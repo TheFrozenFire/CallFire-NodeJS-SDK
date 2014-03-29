@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Label = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Label, Resource);
-module.exports = Label;
-with({proto: Label.prototype}) {
+(function() {
+    'use strict';
+    
+    var Label = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Label;
+    util.inherits(Label, Resource);
+    var proto = Label.prototype;
+    
     proto.types = [
         'Label'
-    ]
+    ];
 
     proto.name = null;
-}
+}) ();

@@ -1,7 +1,12 @@
-var SendText = function() {
-}
-module.exports = SendText;
-with({proto: SendText.prototype}) {
+(function() {
+    'use strict';
+    
+    var SendText = function() {
+        
+    };
+    module.exports = SendText;
+    var proto = SendText.prototype;
+    
     proto.requestId = null;
 
     proto.type = null;
@@ -28,4 +33,4 @@ with({proto: SendText.prototype}) {
 
     proto.bigMessageStrategy = null;
 
-}
+}) ();

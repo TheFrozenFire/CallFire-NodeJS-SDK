@@ -1,7 +1,12 @@
-var CreateContactBatch = function() {
-}
-module.exports = CreateContactBatch;
-with({proto: CreateContactBatch.prototype}) {
+(function() {
+    'use strict';
+    
+    var CreateContactBatch = function() {
+        
+    };
+    module.exports = CreateContactBatch;
+    var proto = CreateContactBatch.prototype;
+    
     proto.requestId = null;
 
     proto.broadcastId = null;
@@ -14,4 +19,4 @@ with({proto: CreateContactBatch.prototype}) {
 
     proto.scrubBroadcastDuplicates = null;
 
-}
+}) ();

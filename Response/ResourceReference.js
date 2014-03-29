@@ -2,12 +2,15 @@ var Response = require('../Response'),
     util = require('util'),
     callfire = require('../callfire');
 
-var ResourceReference = function(document) {
-    Response.call(this, document);
-}
-util.inherits(ResourceReference, Response);
-module.exports = ResourceReference;
-with({proto: ResourceReference.prototype}) {
+(function() {
+    'use strict';
+    
+    var ResourceReference = function(document) {
+        Response.call(this, document);
+    };
+    module.exports = ResourceReference;
+    var proto = ResourceReference.prototype;
+    
     proto.type = 'ResourceReference';
     proto.id = null;
     proto.location = null;
@@ -23,5 +26,5 @@ with({proto: ResourceReference.prototype}) {
         if(location_node !== undefined) {
             this.location = location_node.text();
         }
-    }
-}
+    };
+}) ();

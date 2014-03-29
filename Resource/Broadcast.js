@@ -1,15 +1,19 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var Broadcast = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(Broadcast, Resource);
-module.exports = Broadcast;
-with({proto: Broadcast.prototype}) {
+(function() {
+    'use strict';
+    
+    var Broadcast = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = Broadcast;
+    util.inherits(Broadcast, Resource);
+    var proto = Broadcast.prototype;
+    
     proto.types = [
         'Broadcast'
-    ]
+    ];
 
     proto.id = null;
     proto.name = null;
@@ -19,4 +23,4 @@ with({proto: Broadcast.prototype}) {
     proto.voiceBroadcastConfig = null;
     proto.textBroadcastConfig = null;
     proto.ivrBroadcastConfig = null;
-}
+}) ();

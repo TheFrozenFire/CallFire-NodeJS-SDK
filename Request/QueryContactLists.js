@@ -1,9 +1,14 @@
-var QueryContactLists = function() {
-}
-module.exports = QueryContactLists;
-with({proto: QueryContactLists.prototype}) {
+(function() {
+    'use strict';
+    
+    var QueryContactLists = function() {
+        
+    };
+    module.exports = QueryContactLists;
+    var proto = QueryContactLists.prototype;
+    
     proto.maxResults = null;
 
     proto.firstResult = null;
 
-}
+}) ();

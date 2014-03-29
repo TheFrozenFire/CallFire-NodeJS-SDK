@@ -1,14 +1,18 @@
 var util = require('util');
 var Resource = require('../Resource');
 
-var TextToSpeech = function() {
-    Resource.apply(this, arguments);
-}
-util.inherits(TextToSpeech, Resource);
-module.exports = TextToSpeech;
-with({proto: TextToSpeech.prototype}) {
+(function() {
+    'use strict';
+    
+    var TextToSpeech = function() {
+        Resource.apply(this, arguments);
+    };
+    module.exports = TextToSpeech;
+    util.inherits(TextToSpeech, Resource);
+    var proto = TextToSpeech.prototype;
+    
     proto.types = [
         'TextToSpeech'
-    ]
+    ];
 
-}
+}) ();
