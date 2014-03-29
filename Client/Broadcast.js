@@ -7,7 +7,7 @@ var Client = require('../Client'),
     var Broadcast = function() {
         Client.apply(this, arguments);
     };
-    module.exports = Client;
+    module.exports = Broadcast;
     util.inherits(Broadcast, Client);
     var proto = Broadcast.prototype;
 

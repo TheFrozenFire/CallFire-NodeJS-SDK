@@ -7,7 +7,7 @@ var Client = require('../Client'),
     var Subscription = function() {
         Client.apply(this, arguments);
     };
-    module.exports = Client;
+    module.exports = Subscription;
     util.inherits(Subscription, Client);
     var proto = Subscription.prototype;
 

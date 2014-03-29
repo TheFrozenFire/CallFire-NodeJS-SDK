@@ -49,7 +49,7 @@
         r: 'http://api.callfire.com/resource'
     };
     
-        proto.client.Broadcast = require('./Client/Broadcast');
+    proto.client.Broadcast = require('./Client/Broadcast');
     proto.client.Call = require('./Client/Call');
     proto.client.Contact = require('./Client/Contact');
     proto.client.Label = require('./Client/Label');

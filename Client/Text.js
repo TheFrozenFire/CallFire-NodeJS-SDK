@@ -7,7 +7,7 @@ var Client = require('../Client'),
     var Text = function() {
         Client.apply(this, arguments);
     };
-    module.exports = Client;
+    module.exports = Text;
     util.inherits(Text, Client);
     var proto = Text.prototype;
 
