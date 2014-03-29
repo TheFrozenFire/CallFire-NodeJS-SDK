@@ -1,8 +1,25 @@
 {
-    "name": "callfire",
-    "main": "./callfire.js",
-    "version": "0.0.6",
-    "dependencies": {
-        "libxmljs": ">=0.8.1"
-    }
+  "name": "callfire",
+  "main": "./callfire.js",
+  "version": "0.0.7",
+  "dependencies": {
+    "libxmljs": ">=0.8.1"
+  },
+  "description": "SDK for the CallFire REST API",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TheFrozenFire/CallFire-NodeJS-SDK.git"
+  },
+  "keywords": [
+    "callfire",
+    "sdk"
+  ],
+  "author": "Justin Martin",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/TheFrozenFire/CallFire-NodeJS-SDK/issues"
+  }
 }
