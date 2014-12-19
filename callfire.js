@@ -148,6 +148,11 @@
     proto.request.UpdateBroadcast = require('./Request/UpdateBroadcast');
     proto.request.UpdateSubscription = require('./Request/UpdateSubscription');
     
+    proto.response.Resource = require('./Response/Resource');
+    proto.response.ResourceException = require('./Response/ResourceException');
+    proto.response.ResourceList = require('./Response/ResourceList');
+    proto.response.ResourceReference = require('./Response/ResourceReference');
+    
     proto.AMCONFIG_AM_ONLY = 'AM_ONLY';
     proto.AMCONFIG_AM_AND_LIVE = 'AM_AND_LIVE';
     proto.AMCONFIG_LIVE_WITH_AMD = 'LIVE_WITH_AMD';
