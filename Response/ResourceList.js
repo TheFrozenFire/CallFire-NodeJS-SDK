@@ -28,7 +28,7 @@ var Response = require('../Response'),
         
         if(resource_list !== undefined) {
             for(var i in resource_list) {
-                var resource = this.parse_resource_node(resource_list[i]);
+                var resource = callfire.parse_resource_node(resource_list[i]);
                 
                 if(resource !== undefined) {
                     this.resources.push(resource);

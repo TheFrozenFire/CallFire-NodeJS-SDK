@@ -3,7 +3,7 @@ var http = require('http'),
     querystring = require('querystring'),
     url = require('url'),
     util = require('util'),
-    callfire = require('callfire'),
+    callfire = require('./callfire'),
     libxmljs = require('libxmljs');
 
 (function() {

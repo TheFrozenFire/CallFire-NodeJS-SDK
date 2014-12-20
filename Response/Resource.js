@@ -19,7 +19,7 @@ var Response = require('../Response'),
         var resource;
         
         if(resource_node !== undefined) {
-            resource = this.parse_resource_node(resource_node);
+            resource = callfire.parse_resource_node(resource_node);
             
             if(resource !== undefined) {
                 this.resource = resource;
